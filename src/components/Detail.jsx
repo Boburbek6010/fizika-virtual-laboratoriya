@@ -9,6 +9,7 @@ import Tasks from './Tasks.jsx'
 import Phet from './Phet.jsx'
 const TABS = ["Umumiy ko'rinish", 'Nazariya', 'Formulalar', 'Jihozlar', 'Ishni bajarish', 'Simulyatsiya', 'Test', 'Nazorat ishi', 'Nazorat savollari', 'Xulosa']
 const KEYS = ['ov', 'theory', 'formulas', 'equip', 'proc', 'sim', 'test', 'tasks', 'q', 'concl']
+const STEND = [8, 10, 12, 14, 15, 16, 18]
 const ul = a => <ul>{(a || []).map((x, i) => <li key={i}>{x}</li>)}</ul>
 function View({ t }) {
   const [sp] = useSearchParams(); const [tab, setTab] = useState(Math.max(0, KEYS.indexOf(sp.get('tab'))))
@@ -16,11 +17,13 @@ function View({ t }) {
   const setRows = f => setRowsS(p => { const n = typeof f === 'function' ? f(p) : f; save('fz:rows:' + t.id, n); return n })
   const i = topics.findIndex(x => x.id === t.id), prev = topics[i - 1], next = topics[i + 1]
   const learn = t.learn || t.aim
-  return <div className="wrap"><div className="dhead"><Img topic={t} className="small" /><div><span className="cat">{t.category}</span><h1>{t.title}</h1>{t.short && <p className="muted">{t.short}</p>}
+  const stend = STEND.includes(t.id) ? `${import.meta.env.BASE_URL}img/stend/stend-${String(t.id).padStart(2, '0')}.jpg` : null
+  return <div className={'wrap' + (tab === 5 ? ' wide' : '')}><div className="dhead"><Img topic={t} className="small" /><div><span className="cat">{t.category}</span><h1>{t.title}</h1>{t.short && <p className="muted">{t.short}</p>}
     <div className="badges"><span>Test: {(t.quiz || []).length} savol</span><span>Nazorat ishi: {(t.tasks || []).length} masala</span></div></div></div>
     <div className="tabs noprint">{TABS.map((x, k) => <button key={x} className={'tab' + (k === tab ? ' on' : '')} onClick={() => setTab(k)}>{x}</button>)}</div>
     <div className="panel">
       {tab === 0 && <>
+        {stend && <figure className="stend"><figcaption>Laboratoriya stendi namunasi</figcaption><a href={stend} target="_blank" rel="noopener"><img src={stend} alt={'Laboratoriya stendi namunasi: ' + t.title} loading="lazy" /></a></figure>}
         {learn && <><h4>Nimani o'rganasiz</h4>{ul(learn)}</>}
         {t.aim && t.learn && <><h4>Maqsad</h4>{ul(t.aim)}</>}
         {t.civil && <><h4>Qurilishda qo'llanishi</h4><div className="callout">{ul(t.civil)}</div></>}
@@ -31,7 +34,7 @@ function View({ t }) {
       {tab === 3 && ul(t.equipment)}
       {tab === 4 && <><ol>{(t.procedure || []).map((x, k) => <li key={k}>{x}</li>)}</ol>
         {t.mistakes && <><h4>Odatiy xatolar</h4><div className="callout warn">{ul(t.mistakes)}</div></>}</>}
-      {tab === 5 && (t.sim ? <><Simulator sim={t.sim} table={{ rows, setRows }} topicId={t.id} onFinish={() => setTab(9)} /><Phet id={t.id} /></> : <p className="muted">Simulyator hozircha mavjud emas.</p>)}
+      {tab === 5 && (t.sim ? <><Simulator sim={t.sim} table={{ rows, setRows }} topicId={t.id} formulas={t.formulas} onFinish={() => setTab(9)} /><Phet id={t.id} /></> : <p className="muted">Simulyator hozircha mavjud emas.</p>)}
       {tab === 6 && <Quiz quiz={t.quiz} onDone={(s, n) => bestQuiz(t.id, s, n)} />}
       {tab === 7 && <Tasks tasks={t.tasks} onScore={(s, n) => saveTasks(t.id, s, n)} />}
       {tab === 8 && <ol>{(t.questions || []).map((x, k) => <li key={k}>{x}</li>)}</ol>}

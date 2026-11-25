@@ -246,7 +246,12 @@ export default {
           title: 'Rezonans egri chizig‘i A(f)', xLabel: 'f, Hz', yLabel: 'A, m',
           series: [{ name: 'A(f)', points: pts }, { name: 'Joriy', points: [[v.f, A]] }]
         },
-        note: Math.abs(v.f - f0) / f0 < 0.05 ? 'Rezonans! f ≈ f₀, amplituda maksimal.' : 'Rezonansdan uzoq: amplituda kichik.'
+        note: (() => {
+          const rel = Math.abs(v.f - f0) / f0, pc = Math.round(100 * A / Amax) + '% A_max';
+          return rel < 0.1 ? 'Rezonans yaqinida: amplituda katta (' + pc + ').'
+            : rel < 0.3 ? 'Rezonansga yaqinlashmoqda (' + pc + ').'
+            : 'Rezonansdan uzoq: amplituda kichik (' + pc + ').';
+        })()
       };
     }
   }

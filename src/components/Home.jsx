@@ -12,18 +12,16 @@ export default function Home() {
   const ql = qs.trim().toLowerCase()
   const gl = list.filter(t => !ql || (t.title + ' ' + (t.short || '')).toLowerCase().includes(ql))
   const sum = k => topics.reduce((n, t) => n + (t[k] || []).length, 0)
-  const stats = [[topics.length, 'laboratoriya'], [topics.filter(t => t.sim).length, 'interaktiv simulyatorlar'], [sum('quiz'), 'test savollari'], [sum('tasks'), 'nazorat masalalari']]
-  const D = [['Muallif', 'Jumayeva Ziyoda Arslonovna'], ['Mavzu', "Fizika fanini o'qitish jarayonida talabalarning muhandislik qobiliyatlarini rivojlantirish metodikasi (qurilish muhandisligi yo'nalishlari misolida)"], ['Ixtisoslik', "13.00.02 – Ta'lim va tarbiya nazariyasi va metodikasi (fizika)"], ["Mavzu ro'yxatga olingan", 'B2025.4.PhD/Ped11379'], ['Ilmiy rahbar', 'Kamalov Amangeldi Bazarbayevich, fizika-matematika fanlari doktori, professor'], ['Bajarilgan muassasa', 'Nukus davlat pedagogika instituti'], ['Yetakchi tashkilot', "Farg'ona davlat universiteti"], ['Ilmiy kengash', 'Nukus davlat pedagogika instituti, DSc.01/2025.27.12.Ped.09.01']]
+  const stats = [[topics.length, 'laboratoriya'], [topics.filter(t => t.sim).length, 'interaktiv simulyatorlar'], [sum('quiz'), 'test savollari'], [sum('tasks'), 'nazorat savollari']]
   return <>
-    <header className="hero"><div className="hero-in"><h1>Fizikadan<br />virtual laboratoriya ishlari</h1><p className="uni">Toshkent arxitektura qurilish universiteti</p><p>Qurilish muhandislari uchun 20 ta interaktiv laboratoriya ishi: nazariya, jonli simulyator va testlar.</p>
+    <header className="hero"><div className="hero-in"><p className="uni">Toshkent arxitektura-qurilish universiteti</p><h1><span className="h1a">FIZIKA</span><br />virtual laboratoriya ishlari</h1><p className="for-hero">Qurilish muhandisligi yo'nalishi talabalari uchun</p><p>Qurilish muhandislari uchun 20 ta interaktiv laboratoriya ishi: nazariya, jonli simulyator va testlar.</p>
       <div className="fchips">{[["Interaktiv modellar", "M12 3l8 4.5v9L12 21l-8-4.5v-9zM12 12l8-4.5M12 12v9M12 12L4 7.5"], ["Animatsiya va simulyatsiya", "M8 5v14l11-7z"], ["Avtomatik hisoblash", "M5 4h14v16H5zM8 8h8M8 12h3M13 12h3M8 16h3M13 16h3"], ["Grafiklar va diagrammalar", "M4 20V4M4 20h16M7 15l4-5 3 3 5-7"], ["Natijalarni saqlash", "M5 4h11l3 3v13H5zM8 4v5h7V4M8 20v-6h8v6"]].map(([n, d]) => <span className="fc" key={n}><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d={d} /></svg>{n}</span>)}</div>
       <div className="hero-act"><span className="by"><img className="av" src={import.meta.env.BASE_URL + 'img/muallif.jpg'} alt="" />Muallif: Jumayeva Ziyoda Arslonovna</span>
-      <button className="btn" onClick={() => document.getElementById('muallif')?.scrollIntoView({ behavior: 'smooth' })}>Guvohnomani ko'rish</button></div></div></header>
+      <a className="btn" href={import.meta.env.BASE_URL + 'guvohnoma.pdf'} target="_blank" rel="noopener">Guvohnoma (PDF)</a></div></div></header>
     <Author />
     <section className="intro"><div className="stats">{stats.map(([n, l]) => <div className="stat" key={l}><b>{n}</b><span>{l}</span></div>)}</div>
       <h2 className="sh">Qanday ishlaydi</h2>
-      <div className="how">{[['1', 'Nazariya', "Qisqa nazariya, formulalar va qurilishdagi qo'llanishini o'qing."], ['2', 'Simulyatsiya', "Parametrlarni o'zgartirib, natija va grafikni jonli kuzating, jadvalga yozing."], ['3', 'Test va nazorat ishi', "Testlar va sonli masalalar bilan bilimingizni tekshiring."]].map(([n, h, p]) => <div key={n}><i>{n}</i><h3>{h}</h3><p>{p}</p></div>)}</div>
-      <div className="defense"><span className="cat">Dissertatsiya himoyasi</span><h3>Falsafa doktori (PhD) dissertatsiyasi himoyasi — 25.11.2026</h3><dl>{D.map(([k, v]) => <div style={{ display: 'contents' }} key={k}><dt>{k}</dt><dd>{v}</dd></div>)}</dl></div></section>
+      <div className="how">{[['1', 'Nazariya', "Qisqa nazariya, formulalar va qurilishdagi qo'llanishini o'qing."], ['2', 'Simulyatsiya', "Parametrlarni o'zgartirib, natija va grafikni jonli kuzating, jadvalga yozing."], ['3', 'Test va nazorat ishi', "Testlar va sonli masalalar bilan bilimingizni tekshiring."]].map(([n, h, p]) => <div key={n}><i>{n}</i><h3>{h}</h3><p>{p}</p></div>)}</div></section>
 
     <section id="laboratoriyalar" className="labs"><h2>Laboratoriyalar</h2><p className="muted">20 ta laboratoriya ishidan birini tanlang</p>
       <div className="gridbar"><div className="chips2">{['Hammasi', ...categories].map(c => <button key={c} className={'chip' + (c === cat ? ' on' : '')} onClick={() => setCat(c)}>{c}</button>)}</div>
@@ -46,6 +44,6 @@ export default function Home() {
       <div className="simbox">{t.sim ? <Simulator sim={t.sim} compact topicId={t.id} /> : <p className="muted">Simulyator tez orada qo'shiladi.</p>}</div>
     </section>)}
     <section className="closing"><div className="em">👷 🏗️ 🏢</div><h2>Qurilish fizikasi — kelajak mutaxassislari uchun!</h2></section>
-    <footer>© Fizika virtual laboratoriya · Muallif: Jumayeva Ziyoda Arslonovna · Guvohnoma № DGU 68504{Object.keys(PHET).length > 0 && <><br /><small className="src">Manbalar: interaktiv animatsiyalar — <a href="https://phet.colorado.edu" target="_blank" rel="noopener noreferrer">PhET Interaktiv simulyatsiyalari</a>, Kolorado universiteti (Boulder), CC BY 4.0.</small></>}</footer>
+    <footer>© Fizika virtual laboratoriya · Muallif: Jumayeva Ziyoda Arslonovna{Object.keys(PHET).length > 0 && <><br /><small className="src">Manbalar: interaktiv animatsiyalar — <a href="https://phet.colorado.edu" target="_blank" rel="noopener noreferrer">PhET Interaktiv simulyatsiyalari</a>, Kolorado universiteti (Boulder), CC BY 4.0.</small></>}</footer>
   </>
 }

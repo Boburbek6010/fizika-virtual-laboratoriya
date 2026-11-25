@@ -9,7 +9,7 @@ export function MenuSheet({ onClose }) {
   return <div className="sheet-bg" onClick={onClose}><div className="sheet" onClick={e => e.stopPropagation()}>
     <h3>Menyu</h3>
     <button className="mi" onClick={() => go('muallif')}>Muallif</button>
-    <button className="mi" onClick={() => go('muallif')}>Guvohnoma № DGU 68504</button>
+    <a className="mi" href={import.meta.env.BASE_URL + 'guvohnoma.pdf'} target="_blank" rel="noopener">Guvohnoma (PDF)</a>
     <div className="mi static">Mavzu<span className="seg">{[['light', 'Yorug'], ['dark', "Qorong'i"], ['auto', 'Avto']].map(([k, l]) => <button key={k} className={th === k ? 'on' : ''} onClick={() => { applyTheme(k); setTh(k) }}>{l}</button>)}</span></div>
     <button className="btn ghost" style={{ margin: '12px 0 0' }} onClick={onClose}>Yopish</button></div></div>
 }

@@ -13,7 +13,7 @@ export default {
     { name: 'Stoks kuchi', expr: 'F_St = 6π·η·r·v' },
     { name: 'Og‘irlik kuchi', expr: 'F_g = ρₛ·V·g,  V = (4/3)π·r³' },
     { name: 'Arximed kuchi', expr: 'F_A = ρ·V·g' },
-    { name: 'Muvozanat shartı', expr: 'F_g = F_A + F_St' },
+    { name: 'Muvozanat sharti', expr: 'F_g = F_A + F_St' },
     { name: 'Terminal tezlik', expr: 'v = 2r²·g·(ρₛ − ρ) / (9η),  v = l / t' },
     { name: 'Yopishqoqlik koeffitsiyenti', expr: 'η = 2r²·g·(ρₛ − ρ) / (9v)', note: 'd orqali: η = d²·g·(ρₛ − ρ)·t / (18·l)' },
     { name: 'Reynolds soni', expr: 'Re = ρ·v·d / η', note: 'Stoks uchun Re ≪ 1' },

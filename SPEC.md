@@ -74,3 +74,11 @@ tasks: [{ q: 'Aniq sonli masala matni', answer: 12.5, unit: 'm', tol: 0.03, hint
 ```
 UI: `/topic/:id` HAMMA 20 mavzu uchun ochiladi. Tablar: Umumiy ko'rinish (learn, civil, keyFact), Nazariya (+glossary), Formulalar, Jihozlar, Ishni bajarish (+mistakes), Simulyatsiya (+ "Natijani jadvalga qo'shish": barcha kirish va natijalardan avtomatik ustunlar, CSV yuklash, tozalash, chop etish), Test, Nazorat ishi (tasks, javobni tekshirish, ball), Nazorat savollari, Xulosa. Oldingi/keyingi mavzu navigatsiyasi.
 Bosh sahifa: boyitilgan kirish (statistika, "Qanday ishlaydi" 3 qadam, dissertatsiya himoyasi bloki), har bir bo'lim kartasi boyitilgan (kategoriya, nimani o'rganasiz, qurilishda qo'llanishi, asosiy formula, mini-simulyator, "Nazorat ishi: 4 ta masala" belgisi, "Batafsil" tugmasi hammasida).
+
+## ADDENDUM v3 — virtual stend (efizika.ru / maket uslubi)
+Har bir mavzu uchun animatsion laboratoriya stendi: `src/stands/sNN.jsx` (NN=01..20), `export default function Stand({ v, out, state, t })`.
+- `v` = joriy kirish qiymatlari {id: number} (mavzu faylidagi sim.inputs id lari), `out` = sim.compute(v) natijasi, `state` = 'idle' | 'running' | 'finished', `t` = Boshlash bosilgandan beri soniyalar (running da oshib boradi, finished da muzlaydi, idle da 0).
+- Faqat inline SVG, `viewBox="0 0 640 360"`, `width="100%"`, tashqi kutubxona yo'q, rasm fayllari yo'q. Realistik laboratoriya jihozi ko'rinishi (gradientlar, soyalar, metall/shisha, shkala, raqamli displeylar ko'rsatkich bilan), qurilish konteksti ixtiyoriy.
+- Jihozlar fizik jihatdan to'g'ri harakatlanadi: v ga mos (masalan mayatnik uzunligi l ga mos chiziladi va davri T bilan tebranadi; shar Stoks naychasida v∞ bilan tushadi; zanjirda tok yo'nalishi animatsiyasi; ampermetr/voltmetr displeyi out dagi qiymatni ko'rsatadi). running bo'lmaganda statik holat.
+- Displey yozuvlari o'zbek lotin. Ranglar: neytral jihozlar + aksent #D97757 / #3D7A6E. Dark rejimda ham o'qilsin (fon to'rtburchagi o'z rangiga ega bo'lsin).
+- Simulator stend komponentini `import.meta.glob('./stands/*.jsx', {eager:true})` orqali id bo'yicha topadi; yo'q bo'lsa stend paneli ko'rinmaydi.

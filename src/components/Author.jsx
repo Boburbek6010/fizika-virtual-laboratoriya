@@ -5,12 +5,31 @@ export default function Author() {
   return <section id="muallif" className="author">
     <div className="arow">
       <div className="ainfo">
-        <span className="cat">Muallif</span>
-        <h2>Jumayeva Ziyoda Arslonovna</h2>
-        <p className="cyr">Жумаева Зиёда Арслоновна</p>
-        <p><b>O'qituvchi</b></p>
-        <p className="work">Fizikadan virtual laboratoriya ishlari</p>
-        <p className="uni">Toshkent arxitektura qurilish universiteti</p>
+        <div className="aprof">
+          <img className="portrait" src={B + 'img/muallif.jpg'} alt="Jumayeva Ziyoda Arslonovna" />
+          <div>
+            <span className="cat">Muallif</span>
+            <h2>Jumayeva Ziyoda Arslonovna</h2>
+            <p className="cyr">Жумаева Зиёда Арслоновна</p>
+            <p><b>Toshkent arxitektura-qurilish universiteti o'qituvchisi</b></p>
+            <p className="work">Fizikadan virtual laboratoriya ishlari</p>
+          </div>
+        </div>
+        <ul className="stats4">
+          <li><b>PhD</b><span>dissertatsiya himoyasi, 25.11.2026</span></li>
+          <li><b>20</b><span>virtual laboratoriya ishi</span></li>
+          <li><b>13.00.02</b><span>ta'lim va tarbiya nazariyasi va metodikasi (fizika)</span></li>
+          <li><b>DGU 68504</b><span>dasturning davlat guvohnomasi</span></li>
+        </ul>
+        <div className="abio">
+          <h3>Ilmiy va pedagogik faoliyat</h3>
+          <ul>
+            <li><b>Ish joyi.</b> Toshkent arxitektura-qurilish universiteti (TAQU) o'qituvchisi.</li>
+            <li><b>Ilmiy tadqiqot.</b> «Fizika fanini o'qitish jarayonida talabalarning muhandislik qobiliyatlarini rivojlantirish metodikasi (qurilish muhandisligi yo'nalishlari misolida)» mavzusida falsafa doktori (PhD) dissertatsiyasi.</li>
+            <li><b>Yo'nalishlari.</b> Fizikani kasbga yo'naltirib o'qitish, ilg'or pedagogik texnologiyalarni qo'llash, elektrodinamika fanidan ma'ruza materiallari.</li>
+            <li><b>Amaliy natija.</b> Qurilish muhandisligi talabalari uchun interaktiv virtual laboratoriyalar dasturi — Adliya vazirligi tomonidan davlat ro'yxatidan o'tkazilgan.</li>
+          </ul>
+        </div>
         <p className="for">Qurilish muhandisligi yo'nalishi talabalari uchun</p>
       </div>
       <div className="cert">

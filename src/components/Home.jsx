@@ -16,7 +16,7 @@ export default function Home() {
   return <>
     <header className="hero"><div className="hero-in"><h1>Fizikadan<br />virtual laboratoriya ishlari</h1><p className="uni">Toshkent arxitektura qurilish universiteti</p><p>Qurilish muhandislari uchun 20 ta interaktiv laboratoriya ishi: nazariya, jonli simulyator va testlar.</p>
       <div className="fchips">{[["Interaktiv modellar", "M12 3l8 4.5v9L12 21l-8-4.5v-9zM12 12l8-4.5M12 12v9M12 12L4 7.5"], ["Animatsiya va simulyatsiya", "M8 5v14l11-7z"], ["Avtomatik hisoblash", "M5 4h14v16H5zM8 8h8M8 12h3M13 12h3M8 16h3M13 16h3"], ["Grafiklar va diagrammalar", "M4 20V4M4 20h16M7 15l4-5 3 3 5-7"], ["Natijalarni saqlash", "M5 4h11l3 3v13H5zM8 4v5h7V4M8 20v-6h8v6"]].map(([n, d]) => <span className="fc" key={n}><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d={d} /></svg>{n}</span>)}</div>
-      <div className="hero-act"><span className="by"><i className="av">Z</i>Muallif: Jumayeva Ziyoda Arslonovna</span>
+      <div className="hero-act"><span className="by"><img className="av" src={import.meta.env.BASE_URL + 'img/muallif.jpg'} alt="" />Muallif: Jumayeva Ziyoda Arslonovna</span>
       <button className="btn" onClick={() => document.getElementById('muallif')?.scrollIntoView({ behavior: 'smooth' })}>Guvohnomani ko'rish</button></div></div></header>
     <Author />
     <section className="intro"><div className="stats">{stats.map(([n, l]) => <div className="stat" key={l}><b>{n}</b><span>{l}</span></div>)}</div>

@@ -9,9 +9,9 @@ const shuffleQuiz = t => !t.quiz ? t : { ...t, quiz: t.quiz.map((q, qi) => {
 }) }
 const loaded = Object.keys(mods).sort().map(k => mods[k].default).filter(Boolean).map(shuffleQuiz)
 const byId = Object.fromEntries(loaded.map(t => [t.id, t]))
-export const DETAIL = [3, 7, 10]
 export const topics = T.map(([id, title, category, emoji]) => ({ id, title, category, emoji, short: '', ...(byId[id] || {}), ready: !!byId[id] }))
 loaded.filter(t => !T.some(x => x[0] === t.id)).forEach(t => topics.push({ ...t, ready: true }))
 topics.sort((a, b) => a.id - b.id)
 export const categories = [...new Set(topics.map(t => t.category))]
 export const imgUrl = id => `${import.meta.env.BASE_URL}img/topic-${String(id).padStart(2, '0')}.jpg`
+export const DETAIL = topics.map(t => t.id)

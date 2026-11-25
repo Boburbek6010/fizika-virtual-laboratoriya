@@ -22,12 +22,161 @@ export default {
     'Shtangensirkul',
     'Kalkulyator'
   ],
+  learn: [
+    "Kuchlanish, deformatsiya va Yung moduli o'rtasidagi bog'liqlikni (Guk qonuni)",
+    "Ikki tayanchli balkaning egilishini o'lchab, E ni formuladan hisoblashni",
+    "Kesim inersiya momenti I = b·h³/12 ning balka bikrligiga ta'sirini",
+    "Natijani po'lat, alyuminiy, yog'och jadval qiymatlari bilan solishtirishni"
+  ],
+  civil: [
+    "Ko'prik va ustun-to'sin oraliqlari uchun to'sinning ruxsat etilgan egilishi (ugi) Yung moduli orqali tekshiriladi.",
+    "Temir-beton plitasi va po'lat balkaning bikrligi (E·I) loyihalashda asosiy ko'rsatkich hisoblanadi.",
+    "Kran strelasi og'ir yuk ostida egilib, uchi pastga siljiydi; bu siljish E va kesim o'lchamlariga bog'liq.",
+    "Bir xil yukda yog'och to'sin po'latnikidan ~20 marta ko'proq egiladi, shuning uchun material tanlash E ga asoslanadi."
+  ],
+  keyFact: "To'sin qalinligi ikki marta oshirilsa, egilish 8 marta kamayadi (h³ ga teskari proporsional): shuning uchun ko'priklarda balka balandligi eng ta'sirchan parametr hisoblanadi.",
+  mistakes: [
+    "Millimetrni metrga o'tkazishni unutish: h³ da bu xato 10⁹ marta ta'sir qiladi. Barcha uzunliklarni metrga o'tkazing.",
+    "Yukni kg da qoldirib, F = m·g ni hisoblamaslik; formulaga kuch (N) qo'yiladi.",
+    "Katta egilishlarda (y > l/50) elastiklik sharti buzilib, formula noto'g'ri natija beradi; yukni kamaytiring."
+  ],
+  glossary: [
+    {
+      "t": "Yung moduli",
+      "d": "materialning cho'zilish/siqilishga qarshiligi, E = σ/ε, birligi Pa"
+    },
+    {
+      "t": "Kuchlanish",
+      "d": "kesim yuzasiga to'g'ri keladigan kuch, σ = F/S"
+    },
+    {
+      "t": "Nisbiy deformatsiya",
+      "d": "uzayishning boshlang'ich uzunlikka nisbati, ε = Δl/l"
+    },
+    {
+      "t": "Inersiya momenti (kesim)",
+      "d": "kesim shaklining egilishga qarshiligi, I = b·h³/12"
+    },
+    {
+      "t": "Egilish strelkasi",
+      "d": "balka o'rtasining yuk ostida pastga siljishi y"
+    }
+  ],
+  tasks: [
+    {
+      "q": "Po'lat chizg'ich ikki tayanchga qo'yilgan: l = 0,5 m, eni b = 20 mm, qalinligi h = 3 mm. O'rtasiga m = 2 kg yuk osilganda egilish y = 5,7 mm bo'ldi. Yung moduli E ni GPa da toping (E = F·l³/(4·b·h³·y), g = 9,81).",
+      "answer": 199.2,
+      "unit": "GPa",
+      "tol": 0.03,
+      "hint": "F = m·g; barcha o'lchamlarni metrga o'tkazing.",
+      "solution": "F = 19,62 N; E = 19,62·0,125/(4·0,02·2,7·10⁻⁸·5,7·10⁻³) ≈ 199.2 GPa."
+    },
+    {
+      "q": "Po'lat balka kesimi to'g'ri to'rtburchak: eni b = 0,10 m, balandligi h = 0,20 m. Kesim inersiya momenti I ni sm⁴ da toping.",
+      "answer": 6667,
+      "unit": "sm⁴",
+      "tol": 0.03,
+      "hint": "I = b·h³/12 (m⁴), 1 m⁴ = 10⁸ sm⁴.",
+      "solution": "I = 0,1·0,008/12 = 6,667·10⁻⁵ m⁴ = 6667 sm⁴."
+    },
+    {
+      "q": "Ko'prik osmasi (tros) kesimi S = 0,0025 m² bo'lib, unga F = 50 kN cho'zuvchi kuch ta'sir qiladi. Kuchlanish σ necha MPa?",
+      "answer": 20,
+      "unit": "MPa",
+      "tol": 0.03,
+      "hint": "σ = F/S, 1 MPa = 10⁶ Pa.",
+      "solution": "σ = 50000/0,0025 = 2·10⁷ Pa = 20 MPa."
+    },
+    {
+      "q": "Uzunligi l = 2 m bo'lgan po'lat sterjen (E = 200 GPa) σ = 100 MPa kuchlanish ostida. Uning uzayishi Δl necha mm?",
+      "answer": 1,
+      "unit": "mm",
+      "tol": 0.03,
+      "hint": "ε = σ/E, Δl = ε·l.",
+      "solution": "ε = 10⁸/(2·10¹¹) = 5·10⁻⁴; Δl = 5·10⁻⁴·2 = 10⁻³ m = 1 mm."
+    }
+  ],
+  learn: [
+    "Kuchlanish, deformatsiya va Yung moduli o'rtasidagi bog'liqlikni (Guk qonuni)",
+    "Ikki tayanchli balkaning egilishini o'lchab, E ni formuladan hisoblashni",
+    "Kesim inersiya momenti I = b·h³/12 ning balka bikrligiga ta'sirini",
+    "Natijani po'lat, alyuminiy, yog'och jadval qiymatlari bilan solishtirishni"
+  ],
+  civil: [
+    "Ko'prik va ustun-to'sin oraliqlari uchun to'sinning ruxsat etilgan egilishi (ugi) Yung moduli orqali tekshiriladi.",
+    "Temir-beton plitasi va po'lat balkaning bikrligi (E·I) loyihalashda asosiy ko'rsatkich hisoblanadi.",
+    "Kran strelasi og'ir yuk ostida egilib, uchi pastga siljiydi; bu siljish E va kesim o'lchamlariga bog'liq.",
+    "Bir xil yukda yog'och to'sin po'latnikidan ~20 marta ko'proq egiladi, shuning uchun material tanlash E ga asoslanadi."
+  ],
+  keyFact: "To'sin qalinligi ikki marta oshirilsa, egilish 8 marta kamayadi (h³ ga teskari proporsional): shuning uchun ko'priklarda balka balandligi eng ta'sirchan parametr hisoblanadi.",
+  mistakes: [
+    "Millimetrni metrga o'tkazishni unutish: h³ da bu xato 10⁹ marta ta'sir qiladi. Barcha uzunliklarni metrga o'tkazing.",
+    "Yukni kg da qoldirib, F = m·g ni hisoblamaslik; formulaga kuch (N) qo'yiladi.",
+    "Katta egilishlarda (y > l/50) elastiklik sharti buzilib, formula noto'g'ri natija beradi; yukni kamaytiring."
+  ],
+  glossary: [
+    {
+      "t": "Yung moduli",
+      "d": "materialning cho'zilish/siqilishga qarshiligi, E = σ/ε, birligi Pa"
+    },
+    {
+      "t": "Kuchlanish",
+      "d": "kesim yuzasiga to'g'ri keladigan kuch, σ = F/S"
+    },
+    {
+      "t": "Nisbiy deformatsiya",
+      "d": "uzayishning boshlang'ich uzunlikka nisbati, ε = Δl/l"
+    },
+    {
+      "t": "Inersiya momenti (kesim)",
+      "d": "kesim shaklining egilishga qarshiligi, I = b·h³/12"
+    },
+    {
+      "t": "Egilish strelkasi",
+      "d": "balka o'rtasining yuk ostida pastga siljishi y"
+    }
+  ],
+  tasks: [
+    {
+      "q": "Po'lat chizg'ich ikki tayanchga qo'yilgan: l = 0,5 m, eni b = 20 mm, qalinligi h = 3 mm. O'rtasiga m = 2 kg yuk osilganda egilish y = 5,7 mm bo'ldi. Yung moduli E ni GPa da toping (E = F·l³/(4·b·h³·y), g = 9,81).",
+      "answer": 199.2,
+      "unit": "GPa",
+      "tol": 0.03,
+      "hint": "F = m·g; barcha o'lchamlarni metrga o'tkazing.",
+      "solution": "F = 19,62 N; E = 19,62·0,125/(4·0,02·2,7·10⁻⁸·5,7·10⁻³) ≈ 199.2 GPa."
+    },
+    {
+      "q": "Po'lat balka kesimi to'g'ri to'rtburchak: eni b = 0,10 m, balandligi h = 0,20 m. Kesim inersiya momenti I ni sm⁴ da toping.",
+      "answer": 6667,
+      "unit": "sm⁴",
+      "tol": 0.03,
+      "hint": "I = b·h³/12 (m⁴), 1 m⁴ = 10⁸ sm⁴.",
+      "solution": "I = 0,1·0,008/12 = 6,667·10⁻⁵ m⁴ = 6667 sm⁴."
+    },
+    {
+      "q": "Ko'prik osmasi (tros) kesimi S = 0,0025 m² bo'lib, unga F = 50 kN cho'zuvchi kuch ta'sir qiladi. Kuchlanish σ necha MPa?",
+      "answer": 20,
+      "unit": "MPa",
+      "tol": 0.03,
+      "hint": "σ = F/S, 1 MPa = 10⁶ Pa.",
+      "solution": "σ = 50000/0,0025 = 2·10⁷ Pa = 20 MPa."
+    },
+    {
+      "q": "Uzunligi l = 2 m bo'lgan po'lat sterjen (E = 200 GPa) σ = 100 MPa kuchlanish ostida. Uning uzayishi Δl necha mm?",
+      "answer": 1,
+      "unit": "mm",
+      "tol": 0.03,
+      "hint": "ε = σ/E, Δl = ε·l.",
+      "solution": "ε = 10⁸/(2·10¹¹) = 5·10⁻⁴; Δl = 5·10⁻⁴·2 = 10⁻³ m = 1 mm."
+    }
+  ],
   theory: [
-    "Tashqi kuch ta'sirida jism shakli yoki o'lchamining o'zgarishi deformatsiya deyiladi. Kuch olib tashlangandan keyin jism dastlabki holatiga qaytsa, deformatsiya elastik deformatsiya hisoblanadi. Kichik elastik deformatsiyalarda Guk qonuni bajariladi: σ = E·ε.",
-    "Yung moduli E — materialning elastiklik (qattiqlik) xususiyatini tavsiflovchi kattalik: E = σ/ε, bu yerda σ — mexanik kuchlanish (Pa), ε — nisbiy deformatsiya (o'lchamsiz). Yung moduli material turiga bog'liq, o'lcham va shaklga bog'liq emas. Po'lat uchun taxminan 200 GPa, alyuminiy uchun ≈ 70 GPa, mis uchun ≈ 110 GPa.",
-    "Ikki tayanchga erkin qo'yilgan, to'g'ri to'rtburchak kesimli balkaning o'rtasiga F kuch ta'sir qilsa, o'rtadagi egilish (strelka) y = F·l³ / (48·E·I) bo'ladi. Kesimning inersiya momenti I = b·h³/12, shuning uchun E = F·l³ / (4·b·h³·y).",
-    "Egilish l³ ga to'g'ri, h³ ga teskari proporsional. Ya'ni balka qalinligi 2 marta oshsa, egilish 8 marta kamayadi, tayanchlar orasidagi masofa 2 marta oshsa, egilish 8 marta ortadi. Shu sababli qurilishda to'sinlarni baland kesimli qilib loyihalash samarali. Tajribada egilish kichik bo'lishi (elastiklik chegarasidan oshmasligi) shart.",
-    "Yuk kuchi F = m·g (g = 9,81 m/s²) formulasi bilan topiladi. Yung modulini bilvosita aniqlash uchun bevosita o'lchanadigan kattaliklar: m, l, b, h va y. Eng katta xatolik odatda egilish y ni o'lchashdan (juda kichik qiymat) va qalinlik h ni o'lchashdan kelib chiqadi (h kub darajada kiradi)."
+    "Qattiq jismlar tashqi kuch ostida shaklini o'zgartiradi (deformatsiyalanadi). Kichik deformatsiyalarda Guk qonuni o'rinli: kuchlanish σ = F/S nisbiy deformatsiya ε = Δl/l ga to'g'ri proporsional, σ = E·ε. Proporsionallik koeffitsiyenti E — Yung moduli.",
+    "Yung moduli faqat materialga bog'liq va Pa (odatda GPa) da o'lchanadi. Po'lat uchun taxminan 200 GPa, mis ~110, alyuminiy ~70, shisha ~65, yog'och ~10 GPa. Qanchalik E katta bo'lsa, material shunchalik bikr.",
+    "Ikki tayanchga qo'yilgan balkaning o'rtasiga F kuch qo'yilsa, balka y = F·l³/(48·E·I) strelkaga egiladi. To'g'ri to'rtburchak kesim uchun I = b·h³/12 bo'lgani uchun y = F·l³/(4·E·b·h³).",
+    "Bundan egilish usulida Yung moduli ishchi formulasi kelib chiqadi: E = F·l³/(4·b·h³·y). Tajribada F = m·g, l, b, h va y o'lchanib, E hisoblanadi.",
+    "Balkaning bikrligi balandlikka kuchli bog'liq: h ikki marta oshsa, egilish 8 marta kamayadi; oraliq l ikki marta oshsa, egilish 8 marta ortadi. Shuning uchun ko'priklarda balandligi katta balka va qisqa oraliq tanlanadi.",
+    "Nisbiy xatolik ΔE/E = ΔF/F + 3Δl/l + Δb/b + 3Δh/h + Δy/y formulasi bilan baholanadi; eng katta hissa h va l ning xatosidan keladi. Formulalar faqat elastik deformatsiyada o'rinli: egilish l/50 dan oshsa, hisob noto'g'ri bo'ladi."
   ],
   formulas: [
     { name: 'Yung moduli (umumiy)', expr: 'E = σ / ε', note: 'σ = F/S, ε = Δl/l' },
@@ -38,37 +187,112 @@ export default {
     { name: "Nisbiy xatolik", expr: 'ΔE/E = ΔF/F + 3Δl/l + Δb/b + 3Δh/h + Δy/y', note: 'Darajalar xatolikka ko\'paytiriladi' }
   ],
   procedure: [
-    "Virtual laboratoriya dasturini ishga tushiring va tajriba uchun balka materialini tanlang.",
-    "Shtangensirkul (mikrometr) yordamida balkaning eni b va qalinligi h ni bir necha marta o'lchab, o'rtacha qiymatni oling.",
-    "Tayanchlar orasidagi masofa l ni chizg'ich bilan aniqlang.",
-    "Indikatorning boshlang'ich ko'rsatishini nolga keltiring.",
-    "Balkaning o'rtasiga m massali yukni joylashtiring.",
-    "Yuk ta'sirida hosil bo'lgan egilish y ni indikatordan o'qing va yozib oling.",
-    "F = m·g formulasi bilan kuchni, so'ng E = F·l³/(4·b·h³·y) formulasi bilan Yung modulini hisoblang.",
-    "Yuk massasini bosqichma-bosqich oshirib, tajribani kamida 5 marta takrorlang va natijalarni jadvalga kiriting.",
-    "F ga bog'liq y grafigini chizing (to'g'ri chiziq bo'lishi kerak), E ning o'rtacha qiymatini va xatoligini hisoblang.",
-    "Tajriba qiymatini jadvaldagi Yung moduli bilan taqqoslab, xulosa chiqaring."
+    "Virtual laboratoriyani ishga tushiring va simulyatsiya bo'limini oching.",
+    "Tayanchlar orasidagi masofa l ni o'rnating (masalan, 0,5 m).",
+    "Balka eni b va qalinligi h ni mm da kiriting.",
+    "Yuk massasi m ni 2 kg ga qo'ying; F = m·g hisoblanadi.",
+    "Egilish y ni (mm) kiriting va natijadagi E ni GPa da o'qing.",
+    "Natijani jadvalga qo'shing.",
+    "Yukni 1, 2, 3, 4 kg ga o'zgartirib, har safar y ni yozing.",
+    "F ga bog'liq y grafigini kuzating: u to'g'ri chiziq bo'lishi kerak.",
+    "Hisoblangan E ni po'lat (200 GPa) va alyuminiy (70 GPa) bilan solishtirib materialni aniqlang; h ni 3 mm dan 6 mm ga o'zgartirib, egilishning 8 marta kamayishini tekshiring.",
+    "O'rtacha E va nisbiy xatolikni hisoblab, CSV yuklab oling."
   ],
   questions: [
-    "Deformatsiya deb nimaga aytiladi? Elastik deformatsiya nima?",
-    "Yung modulining fizik ma'nosi nimadan iborat va u qanday formula bilan aniqlanadi?",
-    "Yung modulining SI sistemasidagi birligi qanday?",
-    "Egilish deformatsiyasida balkaning pastki va yuqori qatlamlari qanday holatda bo'ladi?",
-    "Yuk massasi oshirilsa, balkaning egilishi qanday o'zgaradi? Grafik qanday ko'rinishda bo'ladi?",
-    "Balka qalinligi 2 marta oshirilsa, egilish necha marta o'zgaradi? Nima uchun?",
-    "Tayanchlar orasidagi masofa ortishi egilishga qanday ta'sir qiladi?",
-    "Nima uchun turli materiallarning Yung modullari turlicha?",
-    "Tajribada Yung modulini aniqlashda qanday o'lchash xatoliklari yuzaga kelishi mumkin?",
-    "Qurilish muhandisligida Yung moduli nima uchun muhim?"
+    "Yung moduli nimani bildiradi va qanday birlikda o'lchanadi?",
+    "Guk qonuni qanday yoziladi va qachon o'rinli?",
+    "Balkaning egilishi qaysi o'lchamlarga qanday bog'liq?",
+    "Nima uchun balka qalinligi h ni eng aniq o'lchash kerak?",
+    "Kesim inersiya momenti nima? To'g'ri to'rtburchak uchun formulasi qanday?",
+    "Nima uchun yukni tajriba davomida katta qilmaslik kerak?",
+    "Po'lat va yog'och balkaning bir xil yukdagi egilishi qanday farq qiladi?",
+    "Ko'prik balkasi balandligini ikki marta oshirsak, egilish qanday o'zgaradi?",
+    "Nisbiy xatolik formulasida nima uchun h va l oldida 3 koeffitsiyent bor?",
+    "Egilish y yuk F ga qanday bog'liq va grafik qanday ko'rinadi?"
   ],
   quiz: [
-    { q: "Yung moduli qaysi formula bilan aniqlanadi?", options: ["E = ε / σ", "E = F / l", "E = σ / ε", "E = m·g"], answer: 2 },
-    { q: "Egilish usulida balka qanday joylashtiriladi va yuk qayerga qo'yiladi?", options: ["Bir uchi mahkamlangan, yuk erkin uchiga", "Ikki tayanchga erkin qo'yilgan, yuk o'rtasiga", "Osma holatda, yuk tayanchga", "Aylanuvchi holatda, yuk chetiga"], answer: 1 },
-    { q: "Balka qalinligi h ikki marta oshirilsa, egilish qanday o'zgaradi?", options: ["2 marta kamayadi", "4 marta kamayadi", "8 marta kamayadi", "O'zgarmaydi"], answer: 2 },
-    { q: "Yung moduli quyidagilardan qaysi biriga bog'liq emas?", options: ["Material turiga", "Atomlararo kuchlarga", "Balka uzunligiga", "Kristall panjaraga"], answer: 2 },
-    { q: "Egilish tajribasida natija ishonchli bo'lishi uchun egilish qanday bo'lishi kerak?", options: ["Kichik (elastik chegarada)", "Imkon qadar katta", "Plastik deformatsiya hosil qiladigan", "Balka sinish darajasida"], answer: 0 }
+    {
+      "q": "Guk qonuni qaysi ko'rinishda?",
+      "options": [
+        "σ = F·l",
+        "σ = E/ε",
+        "σ = E·ε",
+        "σ = m·g"
+      ],
+      "answer": 2
+    },
+    {
+      "q": "Yung moduli birligi?",
+      "options": [
+        "Pa (paskal)",
+        "N",
+        "J",
+        "kg/m³"
+      ],
+      "answer": 0
+    },
+    {
+      "q": "Egilish usulida ishchi formula?",
+      "options": [
+        "E = F·l / (b·h·y)",
+        "E = F·l³ / (4·b·h³·y)",
+        "E = F·y / l",
+        "E = m·g·h"
+      ],
+      "answer": 1
+    },
+    {
+      "q": "h ikki marta oshsa, egilish y qanday o'zgaradi?",
+      "options": [
+        "8 marta kamayadi",
+        "2 marta kamayadi",
+        "4 marta kamayadi",
+        "o'zgarmaydi"
+      ],
+      "answer": 0
+    },
+    {
+      "q": "Qaysi material Yung moduli eng katta?",
+      "options": [
+        "Alyuminiy",
+        "Yog'och",
+        "Shisha",
+        "Po'lat"
+      ],
+      "answer": 3
+    },
+    {
+      "q": "To'g'ri to'rtburchak kesim uchun I = ?",
+      "options": [
+        "b·h³/12",
+        "b·h/2",
+        "b³·h/12",
+        "b·h²/6"
+      ],
+      "answer": 0
+    },
+    {
+      "q": "Egilish tajribasida F qanday topiladi?",
+      "options": [
+        "F = m/g",
+        "F = m·g",
+        "F = m·l",
+        "F = E·y"
+      ],
+      "answer": 1
+    },
+    {
+      "q": "Yuk 2 marta oshsa (elastik chegarada), y qanday o'zgaradi?",
+      "options": [
+        "2 marta ortadi",
+        "o'zgarmaydi",
+        "4 marta ortadi",
+        "2 marta kamayadi"
+      ],
+      "answer": 0
+    }
   ],
-  conclusion: "Virtual tajribada ikki tayanchli balkaning egilish deformatsiyasi o'rganildi. Yuk massasi ortishi bilan egilish chiziqli ortishi (y ~ F) kuzatildi. Balkaning o'lchamlari, ta'sir etuvchi kuch va egilish asosida E = F·l³/(4·b·h³·y) formulasi bilan Yung moduli hisoblandi va jadval qiymati bilan taqqoslandi. Yung moduli materialning elastiklik xususiyatini tavsiflovchi muhim kattalik ekanligi aniqlandi.",
+  conclusion: "Virtual tajribada ikki tayanchli balkaning egilishi o'rganildi. Yuk ortishi bilan egilish chiziqli ortishi (y ~ F) kuzatildi. E = F·l³/(4·b·h³·y) formulasi bilan Yung moduli hisoblanib, jadval qiymati bilan solishtirildi. Natijaning aniqligi ayniqsa h va l ni o'lchashga bog'liq ekani aniqlandi. Bu usul ko'prik va to'sinlarning bikrligini baholash uchun asos bo'ladi.",
   sim: {
     intro: "Balka o'lchamlari va o'lchangan egilishni kiriting, Yung moduli hisoblanadi va ma'lum materiallar bilan taqqoslanadi.",
     inputs: [

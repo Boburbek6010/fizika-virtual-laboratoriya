@@ -20,9 +20,12 @@ export default {
     'Ekranlovchi materiallar (qog\'oz, plastik, metall, qo\'rg\'oshin)',
   ],
   theory: [
-    'Beqaror yadrolarning o\'z-o\'zidan parchalanib, ionlashtiruvchi nurlanish chiqarishi radioaktivlik deyiladi. Nurlanish turlari: α (geliy yadrolari), β (elektron yoki pozitronlar) va γ (yuqori energiyali elektromagnit nurlanish).',
-    'Geyger–Myuller hisoblagichida zarracha gazni ionlashtiradi, elektr maydonida hosil bo\'lgan zaryadlar qisqa impuls beradi. Sanash tezligi n = N/t, sof tezlik n_s = n − n_fon.',
-    'Nuqtaviy manba intensivligi masofa kvadratiga teskari proporsional (I ~ 1/r²), to\'siqdan o\'tganda esa eksponensial susayadi: I = I₀·e^(−μx). Parchalanish qonuni: N = N₀·e^(−λt), T½ = ln2/λ.',
+    "Radioaktiv nurlanish (alfa, beta, gamma) ionlovchi ta'sirga ega bo'lib, uni sezgilar bilmaydi; shuning uchun Geyger–Myuller hisoblagichi kabi detektorlar ishlatiladi. Har bir ionlovchi zarra gaz razryadi va bitta elektr impulsi hosil qiladi.",
+    "Sanash tezligi n = N/t (imp/s) manba va detektorning o'zaro joylashuvini ifodalaydi. Hisoblagich manbasiz ham fon nurlanishni (kosmik nurlar, tabiiy radionuklidlar) qayd etadi, shuning uchun sof tezlik n_s = n − n_fon ga teng.",
+    "Nuqtaviy manba uchun nurlanish intensivligi masofa kvadratiga teskari proporsional: n_s(r) = n₀(r₀/r)². Masofa ikki baravar ortsa tezlik to'rt baravar kamayadi. Bu eng oddiy himoya usulidir.",
+    "To'siq (beton, qo'rg'oshin, po'lat) nurlanishni eksponensial susaytiradi: n = n₀·e^(−μx). μ materialning zichligi va nurlanish turiga bog'liq. Betonni nuqsonlarga tekshirishda shu qonun asosida yarim qatlam qalinligi baholanadi.",
+    "Radioaktiv parchalanish qonuni N = N₀·e^(−λt), yarim yemirilish davri T½ = ln2/λ, aktivlik A = λN (birligi Bq). Parchalanish tasodifiy bo'lgani uchun sanash Puasson taqsimotiga bo'ysunadi va nisbiy xato 1/√N kabi kamayadi.",
+    "Qurilishda gamma-defektoskopiya beton va payvand choklarni buzmasdan tekshiradi. Xavfsizlik uchta asosda: vaqtni qisqartirish, masofani oshirish, to'siq qo'yish. Foydalanilgan hisoblash me'yorlar va dozimetrik nazorat bilan tasdiqlanadi."
   ],
   formulas: [
     { name: 'Sanash tezligi', expr: 'n = N / t', note: 'N — impulslar soni, t — vaqt (s)' },
@@ -32,32 +35,186 @@ export default {
     { name: 'Parchalanish qonuni', expr: 'N = N₀·e^(−λt),  T½ = ln2 / λ', note: 'aktivlik A = λN, birligi Bq' },
   ],
   procedure: [
-    'Virtual laboratoriyani ishga tushiring.',
-    'Manbasiz holda fon nurlanishini t = 60 s davomida o\'lchang va n_fon ni toping.',
-    'Manbani detektordan belgilangan masofaga joylashtiring.',
-    '"Start" tugmasini bosib, 60 s davomida impulslar soni N ni qayd eting.',
-    'n = N/t va n_s = n − n_fon ni hisoblang.',
-    'Masofani 5, 10, 15, 20, 25 sm qilib o\'lchashni takrorlang.',
-    'Manba va detektor orasiga turli materiallar qo\'yib, sanashni solishtiring.',
-    'Natijalarni jadvalga kiriting, n_s(r) grafigini tuzing.',
+    "Hisoblagichni yoqing va manbasiz fon sanash tezligi n_fon ni t = 60 s da o'lchang.",
+    "Manbani hisoblagichdan r₀ = 5 sm masofaga qo'ying va sanash tezligini o'lchang (n₀).",
+    "Sof tezlikni n_s = n − n_fon deb hisoblang.",
+    "Masofani 5, 10, 15, 20, 30 sm qilib o'zgartiring; har biri uchun N va n ni yozing.",
+    "n_s(r) grafigini tuzing va n_s·r² ≈ const ekanini tekshiring.",
+    "Manba va hisoblagich orasiga to'siq plastinkalar qo'yib, x ni oshiring va n ni o'lchang.",
+    "ln(n_s) ning x ga bog'liqligidan μ ni toping (chiziq qiyaligi −μ).",
+    "Sanash vaqtini 10, 60, 300 s qilib o'zgartirib, nisbiy xato 1/√N kamayishini ko'ring.",
+    "Fon bilan manba signalini solishtiring va qayd etish ishonchliligi haqida xulosa qiling.",
+    "Parchalanish qonuni bo'yicha manba aktivligining vaqt bo'yicha kamayishini hisoblang va natijalarni jadvalga kiriting."
   ],
   questions: [
-    'Radioaktivlik hodisasi nima?',
-    'α, β va γ nurlanishlar qanday zarrachalardan iborat?',
-    'Geyger–Myuller hisoblagichi qanday ishlaydi?',
-    'Nima uchun fon nurlanishi hisobga olinadi?',
-    'Masofa ortganda sanash tezligi qanday o\'zgaradi?',
-    'Aktivlik nima va birligi qanday?',
-    'Radiatsiyadan himoyalanish usullarini ayting.',
+    "Ionlovchi nurlanish turlarini sanab bering.",
+    "Geyger hisoblagichi qanday ishlaydi?",
+    "Fon nurlanish nima va nima uchun ayiriladi?",
+    "Masofa qonuni qanday ifodalanadi va uning amaliy ahamiyati nima?",
+    "To'siqda nurlanish qanday susayadi?",
+    "Yarim yemirilish davri nima va qanday topiladi?",
+    "Aktivlik nima va birligi qaysi?",
+    "Nima uchun sanash vaqti uzoq bo'lsa natija aniqroq bo'ladi?",
+    "Qurilishda gamma-defektoskopiya qanday maqsadda qo'llanadi?",
+    "Radiatsiya xavfsizligining uchta asosiy prinsipi qaysilar?"
   ],
   quiz: [
-    { q: 'Radioaktiv nurlanishni qayd etishda eng ko\'p ishlatiladigan asbob:', options: ['Geyger–Myuller hisoblagichi', 'Voltmetr', 'Ampermetr', 'Ommetr'], answer: 0 },
-    { q: 'Alfa nurlanishning tarkibi:', options: ['Elektronlar', 'Geliy yadrolari', 'Fotonlar', 'Neytronlar'], answer: 1 },
-    { q: 'Gamma nurlanish nima?', options: ['Elektronlar oqimi', 'Protonlar oqimi', 'Yuqori energiyali elektromagnit nurlanish', 'Neytronlar oqimi'], answer: 2 },
-    { q: 'Radioaktiv manba aktivligining SI birligi:', options: ['Volt (V)', 'Amper (A)', 'Om (Ω)', 'Bekkerel (Bq)'], answer: 3 },
-    { q: 'Radioaktiv nurlanishdan himoyalanishning asosiy usullaridan biri:', options: ['Himoya ekranlaridan foydalanish', 'Tokni oshirish', 'Bosimni oshirish', 'Haroratni pasaytirish'], answer: 0 },
+    {
+      "q": "Sanash tezligi qaysi formula bilan topiladi?",
+      "options": [
+        "n = N/t",
+        "n = N·t",
+        "n = t/N",
+        "n = N + t"
+      ],
+      "answer": 0
+    },
+    {
+      "q": "Sof sanash tezligi qanday topiladi?",
+      "options": [
+        "n_s = n + n_fon",
+        "n_s = n − n_fon",
+        "n_s = n·n_fon",
+        "n_s = n/n_fon"
+      ],
+      "answer": 1
+    },
+    {
+      "q": "Masofa ikki baravar ortsa nuqtaviy manba tezligi:",
+      "options": [
+        "2 marta kamayadi",
+        "2 marta ortadi",
+        "4 marta kamayadi",
+        "O'zgarmaydi"
+      ],
+      "answer": 2
+    },
+    {
+      "q": "Aktivlikning SI birligi:",
+      "options": [
+        "Gray",
+        "Zivert",
+        "Kyuri",
+        "Bekkerel"
+      ],
+      "answer": 3
+    },
+    {
+      "q": "To'siqda nurlanish qanday qonun bilan susayadi?",
+      "options": [
+        "Eksponensial",
+        "Chiziqli",
+        "Kvadratik",
+        "Logarifmik o'sish"
+      ],
+      "answer": 0
+    },
+    {
+      "q": "T½ = ... formulasi:",
+      "options": [
+        "λ/ln2",
+        "1/λ²",
+        "ln2/λ",
+        "λ·ln2"
+      ],
+      "answer": 2
+    },
+    {
+      "q": "Hisoblagich 4 yarim davrdan keyin aktivlik boshlang'ichning qancha qismini tashkil etadi?",
+      "options": [
+        "1/4",
+        "1/8",
+        "1/2",
+        "1/16"
+      ],
+      "answer": 3
+    },
+    {
+      "q": "Radiatsiya xavfsizligi prinsiplariga kirmaydi:",
+      "options": [
+        "Vaqtni qisqartirish",
+        "Masofani oshirish",
+        "To'siq qo'yish",
+        "Manbani qizdirish"
+      ],
+      "answer": 3
+    }
   ],
-  conclusion: 'Fon nurlanishi ayirilgach, manbaning sof sanash tezligi aniqlandi. Masofa ortishi bilan sanash tezligi 1/r² qonuniga muvofiq kamayishi, to\'siq qalinligi ortishi bilan eksponensial susayishi kuzatildi.',
+  conclusion: "Hisoblagich yordamida sanash tezligi n = N/t aniqlandi va fon ayirilib sof tezlik topildi. Nuqtaviy manba uchun 1/r² qonuni va to'siqda e^(−μx) susayish tasdiqlandi. Parchalanish qonuni yarim yemirilish davri orqali aktivlik kamayishini beradi. Bu qonunlar beton nazorati va radiatsiya xavfsizligida qo'llanadi.",
+  learn: [
+    "Geyger hisoblagichi bilan impulslar sonini qayd etishni",
+    "Sanash tezligi n = N/t va fonni hisobga olishni",
+    "Masofa qonuni (1/r²) va to'siqda susayish e^(−μx) ni",
+    "Parchalanish qonuni va yarim yemirilish davrini"
+  ],
+  civil: [
+    "Betonning nuqsonlari va armatura joylashuvi gamma-nurlar yordamida buzmasdan nazorat qilinadi; nurlanish qalinlikka qarab susayadi.",
+    "Qurilish maydonida radiatsiya xavfsizligi masofa, to'siq va vaqt prinsiplariga asoslanadi: manbadan uzoqroq, qalinroq to'siq, qisqaroq vaqt.",
+    "Qurilish materiallari (granit, shlak, beton) tabiiy radioaktivligi dozimetr bilan tekshiriladi, me'yordan oshgan materiallar ishlatilmaydi.",
+    "Payvand choklarni rentgen va gamma-defektoskopiya bilan tekshirishda manba atrofida himoya zonasi belgilanadi."
+  ],
+  keyFact: "Nuqtaviy manba nurlanishi masofa ikki baravar ortganda to'rt baravar kamayadi, shuning uchun radiatsiya xavfsizligida eng arzon himoya — manbadan uzoqlashishdir.",
+  mistakes: [
+    "Fonni ayirmaslik: sof tezlik n_s = n − n_fon bo'lishi kerak.",
+    "Masofani manba markazidan emas, korpusidan o'lchash: r markazdan hisoblanadi.",
+    "Qisqa vaqt o'lchash: impulslar tasodifiy, shuning uchun sanash vaqtini uzaytirib, o'rtacha oling."
+  ],
+  glossary: [
+    {
+      "t": "Geyger hisoblagichi",
+      "d": "ionlovchi nurlanishdan impuls hosil qiluvchi gaz razryadli detektor"
+    },
+    {
+      "t": "Fon nurlanish",
+      "d": "manbasiz mavjud tabiiy radiatsiya, hisoblagich uni ham qayd etadi"
+    },
+    {
+      "t": "Aktivlik",
+      "d": "1 sekundda parchalanayotgan yadrolar soni, birligi Bekkerel (Bq)"
+    },
+    {
+      "t": "Yarim yemirilish davri",
+      "d": "yadrolarning yarmi parchalanadigan vaqt T½ = ln2/λ"
+    },
+    {
+      "t": "Susayish koeffitsiyenti μ",
+      "d": "to'siq nurlanishni susaytirish qobiliyati, birligi m⁻¹"
+    }
+  ],
+  tasks: [
+    {
+      "q": "Hisoblagich t = 60 s da N = 1800 impuls qayd etdi, fon tezligi 0,5 imp/s. Sof sanash tezligi n_s necha imp/s?",
+      "answer": 29.5,
+      "unit": "imp/s",
+      "tol": 0.03,
+      "hint": "n = N/t, so'ng fonni ayiring.",
+      "solution": "n = 1800/60 = 30 imp/s; n_s = 30 − 0,5 = 29,5 imp/s."
+    },
+    {
+      "q": "5 sm masofada sanash tezligi n₀ = 200 imp/s. Masofa qonuni n_s = n₀(r₀/r)² bo'yicha r = 20 sm da n_s necha imp/s?",
+      "answer": 12.5,
+      "unit": "imp/s",
+      "tol": 0.03,
+      "hint": "(5/20)² = 1/16.",
+      "solution": "n_s = 200·(1/4)² = 200/16 = 12,5 imp/s."
+    },
+    {
+      "q": "Beton to'siq uchun μ = 100 m⁻¹, qalinligi x = 10 mm. Tushayotgan tezlik n₀ = 400 imp/s. To'siqdan keyin n = n₀·e^(−μx) necha imp/s?",
+      "answer": 147.2,
+      "unit": "imp/s",
+      "tol": 0.03,
+      "hint": "μx = 1; x ni metrga o'tkazing.",
+      "solution": "n = 400·e^(−1) ≈ 147.2 imp/s."
+    },
+    {
+      "q": "Manba aktivligi A₀ = 640 kBq, yarim yemirilish davri T½ = 5 kun. 15 kundan keyin aktivlik necha kBq?",
+      "answer": 80,
+      "unit": "kBq",
+      "tol": 0.03,
+      "hint": "15 kun = 3 ta yarim davr: A = A₀/2³.",
+      "solution": "A = 640/2³ = 640/8 = 80 kBq."
+    }
+  ],
   sim: {
     intro: 'Masofa, to\'siq va o\'lchash vaqtini o\'zgartiring; hisoblagich ko\'rsatishi avtomatik hisoblanadi.',
     inputs: [

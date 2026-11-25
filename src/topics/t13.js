@@ -1,47 +1,240 @@
 export default {
-  id: 13, slug: 'quyosh-kollektori', title: 'Quyosh kollektori samaradorligini izolyatsiya funksiyasi sifatida aniqlash',
-  category: 'Issiqlik', emoji: '☀️',
-  short: "Issiqlik izolyatsiyasi qalinligi kollektorning foydali ish koeffitsiyentiga qanday ta'sir qilishini o'rganish.",
-  aim: ["Quyosh kollektorida issiqlik yutilishi va yo'qotilishini o'rganish", "Kollektor FIK ini aniqlash", "Izolyatsiya qalinligining FIK ga ta'sirini aniqlash", "Optimal izolyatsiya qalinligi tushunchasini bilish"],
-  equipment: ['Virtual laboratoriya dasturi', 'Kompyuter yoki mobil qurilma', 'Kalkulyator', 'Quyosh kollektori (virtual)', 'Termometr'],
-  theory: [
-    "Quyosh kollektori nurlanish energiyasini issiqlikka aylantiradi. Yutilgan energiyaning bir qismi suvni qizdirishga, qolgani tashqi muhitga yo'qotishga ketadi.",
-    "Foydali energiya Q_f = m·c·(T₂ − T₁), kollektorga tushgan energiya Q = I·A·t. Samaradorlik η = Q_f / Q.",
-    "Izolyatsiya orqali yo'qotish Q_yo'q = λ·A·ΔT·t/δ. Qalinlik δ ortsa yo'qotish kamayadi va η ortadi, lekin o'sish sekinlashadi, shuning uchun optimal qalinlik tanlanadi."
+  "id": 13,
+  "slug": "quyosh-kollektori",
+  "title": "Quyosh kollektori samaradorligini izolyatsiya funksiyasi sifatida aniqlash",
+  "category": "Issiqlik",
+  "emoji": "☀️",
+  "short": "Issiqlik izolyatsiyasi qalinligi kollektorning foydali ish koeffitsiyentiga qanday ta'sir qilishini o'rganish.",
+  "learn": [
+    "Quyosh kollektorining energiya balansini tuzishni",
+    "Kollektor FIK η ni η = m·c·ΔT / (I·A·t) bo'yicha aniqlashni",
+    "Izolyatsiya qalinligi va λ ning yo'qotishga ta'sirini baholashni",
+    "Optimal izolyatsiya qalinligini tanlash tamoyilini"
   ],
-  formulas: [
-    { name: 'Foydali issiqlik', expr: 'Q_f = m·c·(T₂ − T₁)', note: 'c = 4200 J/(kg·K)' },
-    { name: 'Tushgan energiya', expr: 'Q = I·A·t', note: 'I — W/m², A — m²' },
-    { name: 'Samaradorlik', expr: 'η = Q_f / (I·A·t)', note: '' },
-    { name: "Izolyatsiyadagi yo'qotish", expr: "Q_yo'q = λ·A·ΔT·t / δ", note: 'λ — W/(m·K)' },
-    { name: 'Izolyatsiya funksiyasi', expr: 'η(δ) = η₀ − λ·ΔT / (I·δ)', note: 'η₀ — yutilish ulushi' }
+  "civil": [
+    "Turar-joy binolarining tomiga o'rnatiladigan quyosh kollektorlari issiq suv ta'minoti uchun energiyani tejaydi.",
+    "Kollektor korpusi va issiq suv bakining issiqlik izolyatsiyasi (mineral paxta, penopoliuretan) yo'qotishni kamaytiradi.",
+    "Devor va tom izolyatsiyasi qalinligi issiqlik o'tkazuvchanlik λ va talab etilgan issiqlik qarshiligi bo'yicha tanlanadi.",
+    "Binoning energiya sertifikatida isitish va issiq suv uchun quyosh energiyasi ulushi hisoblanadi."
   ],
-  procedure: [
+  "keyFact": "Izolyatsiya qalinligini ikki baravar oshirish yo'qotishni taxminan ikki baravar kamaytiradi, lekin FIK o'sishi sekinlashadi, shuning uchun iqtisodiy jihatdan optimal qalinlik mavjud.",
+  "aim": [
+    "Quyosh kollektorida issiqlik yutilishi va yo'qotilishini o'rganish",
+    "Kollektor FIK ini aniqlash",
+    "Izolyatsiya qalinligining FIK ga ta'sirini aniqlash",
+    "Optimal izolyatsiya qalinligi tushunchasini bilish"
+  ],
+  "equipment": [
+    "Virtual laboratoriya dasturi",
+    "Kompyuter yoki mobil qurilma",
+    "Kalkulyator",
+    "Quyosh kollektori (virtual)",
+    "Termometr"
+  ],
+  "theory": [
+    "Quyosh kollektori quyosh nurlanishi energiyasini issiqlikka aylantiradi. Yutilgan energiyaning bir qismi suyuqlikni qizdirishga, qolgani konvektsiya va nurlanish orqali tashqi muhitga yo'qotishga ketadi.",
+    "Kollektorga tushgan energiya Q = I·A·t, bu yerda I — nurlanish intensivligi (W/m²), A — yuza (m²), t — vaqt (s). Foydali issiqlik esa suvni isitishga ketgan Q_f = m·c·(T₂ − T₁) ga teng.",
+    "Samaradorlik (FIK) η = Q_f / Q bilan aniqlanadi. Real kollektorda η yutilish ulushi η₀ dan kichik bo'ladi, chunki yo'qotishlar mavjud.",
+    "Izolyatsiya orqali issiqlik yo'qotish Q_yo'q = λ·A·ΔT·t/δ formulasi bilan beriladi. λ qancha kichik va δ qancha katta bo'lsa, yo'qotish shuncha kam bo'ladi. Shu sababli zamonaviy izolyatorlar uchun λ ≈ 0,02–0,05 W/(m·K).",
+    "Izolyatsiya funksiyasi η(δ) = η₀ − λ·ΔT/(I·δ) giperbolik xususiyatga ega: δ oshgan sari η o'sishi sekinlashadi. Shuning uchun materialning narxi va olingan foydani solishtirib, optimal qalinlik tanlanadi.",
+    "Energiya balansi Q_quyosh = Q_f + Q_yo'q ko'rinishida yoziladi. Xuddi shu yondashuv bino devori va tomi uchun issiqlik yo'qotishini baholashda ham qo'llaniladi."
+  ],
+  "formulas": [
+    {
+      "name": "Foydali issiqlik",
+      "expr": "Q_f = m·c·(T₂ − T₁)",
+      "note": "c = 4200 J/(kg·K)"
+    },
+    {
+      "name": "Tushgan energiya",
+      "expr": "Q = I·A·t",
+      "note": "I — W/m², A — m²"
+    },
+    {
+      "name": "Samaradorlik",
+      "expr": "η = Q_f / (I·A·t)",
+      "note": ""
+    },
+    {
+      "name": "Izolyatsiyadagi yo'qotish",
+      "expr": "Q_yo'q = λ·A·ΔT·t / δ",
+      "note": "λ — W/(m·K)"
+    },
+    {
+      "name": "Izolyatsiya funksiyasi",
+      "expr": "η(δ) = η₀ − λ·ΔT / (I·δ)",
+      "note": "η₀ — yutilish ulushi"
+    }
+  ],
+  "procedure": [
     "Virtual laboratoriyani ishga tushiring.",
     "Kollektor yuzasi A, nurlanish intensivligi I va suv massasi m ni belgilang.",
-    "Suvning T₁ va tashqi havoning T_a temperaturasini kiriting.",
+    "Suvning boshlang'ich T₁ temperaturasini va kollektor–muhit temperatura farqi ΔT ni kiriting.",
     "Izolyatsiya materialini tanlab, λ ni yozing.",
+    "Tajriba vaqti t ni belgilang (masalan, 600 s).",
     "Izolyatsiya qalinligini 10, 20, 30, 40, 50 mm qilib o'zgartiring.",
-    "Har bir qalinlik uchun bir xil t vaqt davomida tajriba o'tkazib, T₂ ni o'lchang.",
-    "Q_f, Q va η ni hisoblang, η = f(δ) grafigini chizing."
+    "Har bir qalinlik uchun T₂ ni o'lchab, natijani jadvalga qo'shing.",
+    "Q_f = m·c·(T₂ − T₁), Q = I·A·t va η = Q_f/Q ni hisoblang.",
+    "η = f(δ) grafigini chizib, o'sish sekinlashadigan qalinlikni aniqlang.",
+    "λ ning boshqa qiymatlarida tajribani takrorlab, izolyator materiallarini taqqoslang va xulosa yozing."
   ],
-  questions: [
+  "mistakes": [
+    "Izolyatsiya qalinligini mm da formulaga qo'yish: δ ni metrga o'tkazing (30 mm = 0,03 m).",
+    "Nurlanish intensivligi I (W/m²) ni kollektor yuzasi A ga ko'paytirishni va vaqt t (s) ni unutish natijasida Q xato chiqadi.",
+    "Temperaturani °C dan K ga o'tkazishga urinib, ΔT ni noto'g'ri hisoblash: ΔT uchun ayirma yetarli.",
+    "FIK ni 1 dan katta chiqarish: yo'qotishlar va yutilish η₀ ni tekshiring."
+  ],
+  "glossary": [
+    {
+      "t": "Quyosh kollektori",
+      "d": "Quyosh nurlanishini issiqlikka aylantirib, suyuqlikni isituvchi qurilma."
+    },
+    {
+      "t": "Nurlanish intensivligi I",
+      "d": "Birlik yuzaga tushuvchi quyosh quvvati, W/m²."
+    },
+    {
+      "t": "FIK η",
+      "d": "Foydali issiqlikning kollektorga tushgan energiyaga nisbati."
+    },
+    {
+      "t": "Issiqlik o'tkazuvchanlik λ",
+      "d": "Materialning issiqlikni o'tkazish xossasi, W/(m·K); kichik λ yaxshi izolyator."
+    },
+    {
+      "t": "Izolyatsiya qalinligi δ",
+      "d": "Issiqlik yo'qotishni kamaytiruvchi qatlam qalinligi, m."
+    }
+  ],
+  "questions": [
     "Quyosh kollektorining vazifasi nima?",
     "Kollektor effektivligi qanday aniqlanadi?",
     "Quyosh nurlanish intensivligining birligi qanday?",
     "Issiqlik izolyatsiyasining vazifasi nima?",
     "Izolyatsiya qalinligi oshganda issiqlik yo'qotilishi qanday o'zgaradi?",
     "Nima uchun η = f(δ) bog'lanishi chiziqli bo'lmaydi?",
-    "Kollektorlarda qaysi izolyatsiya materiallaridan foydalanish mumkin?"
+    "Kollektorlarda qaysi izolyatsiya materiallaridan foydalanish mumkin?",
+    "Issiqlik o'tkazuvchanlik λ nima va uning birligi qanday?",
+    "Bino tomiga kollektor o'rnatishda qaysi omillar FIK ga ta'sir qiladi?",
+    "Izolyatsiyaning optimal qalinligi nimaga qarab tanlanadi?"
   ],
-  quiz: [
-    { q: "Quyosh nurlanish intensivligining birligi qaysi?", options: ['W/m²', 'J/kg', 'W/K', 'K/m'], answer: 0 },
-    { q: "Kollektor FIK formulasi qaysi?", options: ['η = m·c·ΔT / (I·A·t)', 'η = I·A·t / (m·c·ΔT)', 'η = m·c / ΔT', 'η = I / A'], answer: 0 },
-    { q: "Izolyatsiya qalinligi ortsa issiqlik yo'qotilishi...", options: ['Kamayadi', 'Ortadi', "O'zgarmaydi", 'Nolga teng bo\'ladi'], answer: 0 },
-    { q: "Izolyatsiya uchun qanday λ afzal?", options: ['Kichik', 'Katta', 'Hech farqi yo\'q', 'Cheksiz'], answer: 0 },
-    { q: "Energiya balansi qanday yoziladi?", options: ["Q_quyosh = Q_f + Q_yo'q", "Q_quyosh = Q_f − Q_yo'q", "Q_f = Q_quyosh + Q_yo'q", "Q_yo'q = Q_f"], answer: 0 }
+  "quiz": [
+    {
+      "q": "Quyosh nurlanish intensivligining birligi qaysi?",
+      "options": [
+        "J/kg",
+        "W/K",
+        "W/m²",
+        "K/m"
+      ],
+      "answer": 2
+    },
+    {
+      "q": "Kollektor FIK formulasi qaysi?",
+      "options": [
+        "η = m·c·ΔT / (I·A·t)",
+        "η = I·A·t / (m·c·ΔT)",
+        "η = m·c / ΔT",
+        "η = I / A"
+      ],
+      "answer": 0
+    },
+    {
+      "q": "Izolyatsiya qalinligi ortsa issiqlik yo'qotilishi...",
+      "options": [
+        "Ortadi",
+        "O'zgarmaydi",
+        "Nolga teng bo'ladi",
+        "Kamayadi"
+      ],
+      "answer": 3
+    },
+    {
+      "q": "Izolyatsiya uchun qanday λ afzal?",
+      "options": [
+        "Katta",
+        "Kichik",
+        "Hech farqi yo'q",
+        "Cheksiz"
+      ],
+      "answer": 1
+    },
+    {
+      "q": "Energiya balansi qanday yoziladi?",
+      "options": [
+        "Q_quyosh = Q_f − Q_yo'q",
+        "Q_f = Q_quyosh + Q_yo'q",
+        "Q_quyosh = Q_f + Q_yo'q",
+        "Q_yo'q = Q_f"
+      ],
+      "answer": 2
+    },
+    {
+      "q": "I = 500 W/m², A = 2 m², t = 100 s bo'lsa, tushgan energiya qancha?",
+      "options": [
+        "1000 J",
+        "10 000 J",
+        "1 000 000 J",
+        "100 000 J"
+      ],
+      "answer": 3
+    },
+    {
+      "q": "Qaysi izolyatsiya materiali yaxshiroq?",
+      "options": [
+        "λ si katta bo'lgan",
+        "λ si kichik bo'lgan",
+        "Zichligi eng katta bo'lgan",
+        "Eng yupqa bo'lgan"
+      ],
+      "answer": 1
+    },
+    {
+      "q": "η(δ) grafigida δ ortgan sari o'sish nima uchun sekinlashadi?",
+      "options": [
+        "Yo'qotish δ ga teskari proporsional",
+        "Yo'qotish δ ga to'g'ri proporsional",
+        "Quyosh intensivligi kamayadi",
+        "Suv massasi kamayadi"
+      ],
+      "answer": 0
+    }
   ],
-  conclusion: "Tajribada kollektor samaradorligi izolyatsiya qalinligiga bog'liqligi aniqlandi: qalinlik ortishi bilan yo'qotish kamayib η ortadi, ammo ma'lum qalinlikdan keyin o'sish sekinlashadi.",
+  "tasks": [
+    {
+      "q": "Quyosh kollektori yuzasi 2 m², nurlanish intensivligi 800 W/m². 600 s davomida kollektorga qancha energiya tushadi? Javobni megajoulda kiriting.",
+      "answer": 0.96,
+      "unit": "MJ",
+      "tol": 0.03,
+      "hint": "Q = I·A·t.",
+      "solution": "Q = 800 · 2 · 600 = 960 000 J = 0,96 MJ."
+    },
+    {
+      "q": "5 kg suv (c = 4200 J/(kg·K)) 20 °C dan 44 °C gacha isidi. Kollektorga 0,96 MJ energiya tushgan bo'lsa, FIK η necha foiz?",
+      "answer": 52.5,
+      "unit": "%",
+      "tol": 0.03,
+      "hint": "η = m·c·ΔT / Q.",
+      "solution": "Q_f = 5·4200·24 = 504 000 J; η = 504 000 / 960 000 = 0,525 = 52,5 %."
+    },
+    {
+      "q": "Kollektor korpusi izolyatsiyasi: λ = 0,04 W/(m·K), yuza A = 2 m², qalinlik δ = 30 mm, temperatura farqi ΔT = 25 K. 600 s davomida yo'qotilgan issiqlik necha kJ?",
+      "answer": 40,
+      "unit": "kJ",
+      "tol": 0.03,
+      "hint": "Q = λ·A·ΔT·t/δ, δ ni metrga o'tkazing.",
+      "solution": "Q = 0,04·2·25·600 / 0,03 = 40 000 J = 40 kJ."
+    },
+    {
+      "q": "Izolyatsiya funksiyasi η(δ) = η₀ − λ·ΔT/(I·δ). Agar η₀ = 0,85, λ = 0,04 W/(m·K), ΔT = 25 K, I = 800 W/m², δ = 50 mm bo'lsa, η necha foiz?",
+      "answer": 82.5,
+      "unit": "%",
+      "tol": 0.03,
+      "hint": "Avval λΔT/(Iδ), δ = 0,05 m.",
+      "solution": "λΔT/(Iδ) = 1/(40) = 0,025; η = 0,85 − 0,025 = 0,825 = 82,5 %."
+    }
+  ],
+  "conclusion": "Tajribada kollektor samaradorligi izolyatsiya qalinligiga bog'liqligi aniqlandi: qalinlik ortishi bilan yo'qotish kamayib η ortadi, ammo ma'lum qalinlikdan keyin o'sish sekinlashadi. Shu sababli amalda iqtisodiy jihatdan optimal qalinlik tanlanadi. Natijalar tom ustidagi kollektorlar va bino tashqi devorlari izolyatsiyasini loyihalashda foydalaniladi.",
   sim: {
     intro: "Kollektor va izolyatsiya parametrlarini o'zgartiring, suvning oxirgi temperaturasi va samaradorlik hisoblanadi.",
     inputs: [

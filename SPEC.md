@@ -60,3 +60,17 @@ Fayl faqat `export default` bo'lsin, boshqa import yo'q. Hisoblash fizik jihatda
 ## Sahifalar
 - `/` bosh sahifa: hero, kategoriya filtri, 20 ta mavzu to'liq kenglikdagi bo'lim (rasm + sarlavha + short + jonli mini-simulyator + maqsad), navbar anchor.
 - `/topic/:id` faqat 3, 7, 10 uchun batafsil (tablar: Nazariya, Formulalar, Jihozlar, Ishni bajarish, Simulyatsiya, Test, Nazorat savollari). Qolganlarda "Tez orada" belgisi.
+
+## ADDENDUM v2 (boyitish) — barcha 20 mavzu uchun BATAFSIL sahifa
+Har bir mavzu faylida (kontrakt maydonlariga qo'shimcha) quyidagilar bo'ladi (o'zbek lotin, qurilish muhandisligi konteksti):
+```js
+learn: ['Nimani o\'rganasiz 1', ... 4 ta],
+civil: ['Qurilishda qo\'llanishi: 1-2 gaplik aniq misol', ... 3-4 ta],   // masalan: ko'prik, kran, poydevor, izolyatsiya
+keyFact: 'bitta qiziqarli fakt (1-2 gap)',
+mistakes: ['Odatiy xato va qanday oldini olish', ... 3 ta],
+glossary: [{ t: 'termin', d: 'qisqa ta\'rif' }, ... 5 ta],
+tasks: [{ q: 'Aniq sonli masala matni', answer: 12.5, unit: 'm', tol: 0.03, hint: 'ishora', solution: 'qisqa yechim bosqichlari' }, ... 4 ta],  // "Nazorat ishi": talaba javob kiritadi, nisbiy xato tol dan kichik bo'lsa to'g'ri
+// boyitilgan: theory 4-6 paragraf, procedure 8-10 qadam, questions 8-10 ta, quiz 8 ta savol, conclusion 3-4 gap
+```
+UI: `/topic/:id` HAMMA 20 mavzu uchun ochiladi. Tablar: Umumiy ko'rinish (learn, civil, keyFact), Nazariya (+glossary), Formulalar, Jihozlar, Ishni bajarish (+mistakes), Simulyatsiya (+ "Natijani jadvalga qo'shish": barcha kirish va natijalardan avtomatik ustunlar, CSV yuklash, tozalash, chop etish), Test, Nazorat ishi (tasks, javobni tekshirish, ball), Nazorat savollari, Xulosa. Oldingi/keyingi mavzu navigatsiyasi.
+Bosh sahifa: boyitilgan kirish (statistika, "Qanday ishlaydi" 3 qadam, dissertatsiya himoyasi bloki), har bir bo'lim kartasi boyitilgan (kategoriya, nimani o'rganasiz, qurilishda qo'llanishi, asosiy formula, mini-simulyator, "Nazorat ishi: 4 ta masala" belgisi, "Batafsil" tugmasi hammasida).

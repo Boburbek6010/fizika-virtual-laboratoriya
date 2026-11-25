@@ -23,10 +23,17 @@ function Chart({ c }) {
     <g transform={`translate(${m.l + 8} ${m.t + 4})`}>{ss.map((s, k) => <g key={k} transform={`translate(0 ${k * 14})`}><circle r="4" cx="4" cy="4" style={{ fill: s.points.length === 1 ? 'var(--accent)' : COL[k % 3] }} /><text x="14" y="8" className="lg">{s.name}</text></g>)}</g>
   </svg>
 }
-export default function Simulator({ sim }) {
+export default function Simulator({ sim, table }) {
   const [v, setV] = useState(() => Object.fromEntries(sim.inputs.map(i => [i.id, i.value])))
   const out = useMemo(() => { try { return sim.compute(v) } catch (e) { return { results: [], note: 'Hisoblashda xato: ' + e.message } } }, [v, sim])
   const set = (i, x) => { x = parseFloat(x); setV(p => ({ ...p, [i.id]: isNaN(x) ? i.min : x })) }
+  const cols = [...sim.inputs.map(i => ({ k: i.label + (i.unit ? ' (' + i.unit + ')' : ''), h: i.label + (i.unit ? ' (' + i.unit + ')' : '') })), ...(out.results || []).map((r, k) => ({ k: r.label + (r.unit ? ' (' + r.unit + ')' : ''), h: r.label + (r.unit ? ' (' + r.unit + ')' : '') }))]
+  const snap = () => ({ ...Object.fromEntries(sim.inputs.map(i => [i.label + (i.unit ? ' (' + i.unit + ')' : ''), String(v[i.id])])), ...Object.fromEntries((out.results || []).map(r => [r.label + (r.unit ? ' (' + r.unit + ')' : ''), sig(r.value, r.digits || 3)])) })
+  const csv = () => {
+    const q = x => '"' + String(x ?? '').replace(/"/g, '""') + '"'
+    const text = ['№', ...cols.map(c => c.h)].map(q).join(',') + '\n' + table.rows.map((r, n) => [n + 1, ...cols.map(c => r[c.k])].map(q).join(',')).join('\n')
+    const a = document.createElement('a'); a.href = URL.createObjectURL(new Blob(['\ufeff' + text], { type: 'text/csv;charset=utf-8' })); a.download = 'natijalar.csv'; a.click(); URL.revokeObjectURL(a.href)
+  }
   return <div className="sim">
     {sim.intro && <p className="muted">{sim.intro}</p>}
     <div className="sim-grid">
@@ -40,5 +47,12 @@ export default function Simulator({ sim }) {
         {out.note && <div className="note">{out.note}</div>}
       </div>
     </div>
+    {table && <div className="rtable">
+      <div className="rt-act noprint"><button className="btn" onClick={() => table.setRows(r => [...r, snap()])}>Natijani jadvalga qo'shish</button>
+        {table.rows.length > 0 && <><button className="btn ghost" onClick={csv}>CSV yuklash</button><button className="btn ghost" onClick={() => window.print()}>Chop etish</button><button className="btn ghost" onClick={() => table.setRows([])}>Tozalash</button></>}</div>
+      {table.rows.length > 0 ? <div className="tscroll"><table><thead><tr><th>№</th>{cols.map(c => <th key={c.k}>{c.h}</th>)}</tr></thead>
+        <tbody>{table.rows.map((r, n) => <tr key={n}><td>{n + 1}</td>{cols.map(c => <td key={c.k}>{r[c.k] ?? '—'}</td>)}</tr>)}</tbody></table></div>
+        : <p className="muted">Jadval bo'sh. Qiymatlarni tanlab, natijani jadvalga qo'shing.</p>}
+    </div>}
   </div>
 }

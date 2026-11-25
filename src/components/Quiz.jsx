@@ -1,5 +1,5 @@
 import { useState } from 'react'
-export default function Quiz({ quiz = [] }) {
+export default function Quiz({ quiz = [], onDone }) {
   const [ans, setAns] = useState({}); const [done, setDone] = useState(false)
   if (!quiz.length) return <p className="muted">Test hozircha mavjud emas.</p>
   const score = quiz.filter((q, i) => ans[i] === q.answer).length
@@ -12,6 +12,6 @@ export default function Quiz({ quiz = [] }) {
       })}
     </div>)}
     {done ? <div className="score">Natija: {score} / {quiz.length} <button className="btn ghost" onClick={() => { setAns({}); setDone(false) }}>Qayta urinish</button></div>
-      : <button className="btn" disabled={Object.keys(ans).length < quiz.length} onClick={() => setDone(true)}>Tekshirish</button>}
+      : <button className="btn" disabled={Object.keys(ans).length < quiz.length} onClick={() => { setDone(true); onDone && onDone(score, quiz.length) }}>Tekshirish</button>}
   </div>
 }

@@ -8,45 +8,200 @@ export default {
     'Tajriba natijalari asosida tovush tezligini aniqlash'
   ],
   equipment: ['Virtual laboratoriya dasturi', 'Rezonans trubkasi va porshen', 'Tovush generatori', 'Kompyuter yoki mobil qurilma', 'Kalkulyator'],
-  theory: [
-    'Tovush — elastik muhitda tarqaluvchi mexanik to‘lqin. Uning tezligi v = λ·f, bunda λ — to‘lqin uzunligi, f — chastota.',
-    'Bir uchi yopiq trubkada tovush turg‘un to‘lqin hosil qiladi. Havo ustuni uzunligi l = λ/4, 3λ/4, ... bo‘lganda rezonans yuz beradi va tovush eng baland eshitiladi.',
-    'Ketma-ket ikki rezonans orasidagi masofa l₂ − l₁ = λ/2, shuning uchun λ = 2(l₂ − l₁) va v = 2f(l₂ − l₁). Bu usul trubka chetidagi tuzatmani yo‘qotadi.',
-    'Havoda tovush tezligi haroratga bog‘liq: v ≈ 331,4 + 0,6·t (t — °C). 20 °C da v ≈ 343 m/s.'
-  ],
   formulas: [
     { name: 'Tovush tezligi', expr: 'v = λ·f' },
     { name: 'To‘lqin uzunligi', expr: 'λ = 2·(l₂ − l₁)' },
     { name: 'Tajribaviy tezlik', expr: 'v = 2f·(l₂ − l₁)' },
     { name: 'Haroratga bog‘liqlik', expr: 'v ≈ 331,4 + 0,6·t', note: 't — °C da' }
   ],
+  learn: [
+    "Tovushning havodagi tarqalish tezligi v = λ·f munosabatini",
+    "Yopiq trubkada turg‘un to‘lqin va rezonans shartini",
+    "Ikki ketma-ket rezonans orasidagi masofa λ/2 ekanini",
+    "Tovush tezligining haroratga bog‘liqligini va tajriba xatolarini"
+  ],
+  civil: [
+    "Ultratovushli defektoskop va beton mustahkamligini aniqlashda tovush tezligi asosiy ko‘rsatkich: beton zichroq bo‘lsa, tezlik katta.",
+    "Akustik me’morchilikda zal va teatrlarning aks sadosi tovush tezligi va to‘lqin uzunligidan hisoblanadi.",
+    "Tovush izolyatsiyasi va shovqin to‘siqlarining samaradorligi to‘lqin uzunligi bilan bog‘liq: past chastotali tovush uzun to‘lqinli bo‘lib, to‘siq atrofidan oson o‘tadi.",
+    "Quvur va ventilyatsiya shaxtalarida havo ustuni rezonansi shovqin va gumburlashga olib keladi, shu sababli uzunlik chastotaga moslab tanlanadi."
+  ],
+  keyFact: "Havoda tovush tezligi har 1 °C isishda taxminan 0,6 m/s ortadi, ya’ni qishda (−10 °C) u yozdagidan (+30 °C) taxminan 24 m/s sekinroq. Betonda esa tovush 4000 m/s dan ortiq tezlikda tarqaladi.",
+  mistakes: [
+    "Rezonanslar orasidagi masofani λ deb olish: u λ/2 ga teng, λ = 2(l₂ − l₁) ekanini yodda tuting.",
+    "Trubka uchi tuzatmasini (e ≈ 0,6r) hisobga olmay faqat l₁ dan λ ni topish. Shu sababli ikki rezonans ayirmasidan foydalaning.",
+    "Haroratni e’tiborsiz qoldirish: 20 °C va 0 °C da tezlik 12 m/s farq qiladi. Xona haroratini yozib oling."
+  ],
+  glossary: [
+    {
+      "t": "To‘lqin uzunligi",
+      "d": "Bir tebranish davrida to‘lqin bosib o‘tadigan masofa λ."
+    },
+    {
+      "t": "Rezonans",
+      "d": "Tashqi chastota xususiy chastotaga mos kelganda amplituda keskin ortishi."
+    },
+    {
+      "t": "Turg‘un to‘lqin",
+      "d": "Qarama-qarshi to‘lqinlar qo‘shilishidan tugun va do‘ngliklar hosil bo‘lishi."
+    },
+    {
+      "t": "Chastota",
+      "d": "Soniyadagi tebranishlar soni f, birligi Hz."
+    },
+    {
+      "t": "Uchi tuzatmasi",
+      "d": "Trubka uchidan tashqarida do‘ngliklar siljishi, e ≈ 0,6·r."
+    }
+  ],
+  theory: [
+    "Tovush — elastik muhitda tarqaladigan bo‘ylama mexanik to‘lqin. To‘lqin tezligi v, chastotasi f va to‘lqin uzunligi λ orasida v = λ·f bog‘lanish bor. Havoda tezlik asosan haroratga bog‘liq: v ≈ 331,4 + 0,6·t (t — °C).",
+    "Bir uchi yopiq trubka ustidagi tovush generatori havo ustunini tebrantiradi. Porshen bilan ustun uzunligini o‘zgartirib, to‘lqinning tushuvchi va qaytuvchi qismlari qo‘shilishidan turg‘un to‘lqin hosil qilinadi.",
+    "Rezonans birinchi marta l₁ ≈ λ/4 − e da, ikkinchi marta l₂ ≈ 3λ/4 − e da kuzatiladi. Yopiq uchda tugun, ochiq uchda do‘nglik bo‘ladi, shu sababli ketma-ket rezonanslar orasidagi masofa λ/2 ga teng.",
+    "Ikki rezonansdan λ = 2(l₂ − l₁) topiladi, undan v = 2f·(l₂ − l₁). Bu usulda trubka uchi tuzatmasi e ayirmada yo‘qoladi, shu sababli tajriba aniq natija beradi.",
+    "Havo ustunining rezonansi qurilishda ham muhim: ventilyatsiya kanallari, quvurlar va akustik kameralarda ma’lum chastotalarda tovush kuchayadi. Tovush tezligi va to‘lqin uzunligi shovqin to‘siqlari va akustik materiallarni tanlashda hisobga olinadi."
+  ],
   procedure: [
-    'Virtual laboratoriyani ishga tushiring.',
-    'Tovush generatorida chastotani (masalan, 500 Hz) tanlang.',
-    'START tugmasini bosing.',
-    'Porshenni sekin siljitib, tovush amplitudasi maksimal bo‘lgan birinchi holatni toping va l₁ ni yozing.',
-    'Porshenni yana siljitib, ikkinchi rezonans l₂ ni toping.',
-    'λ = 2(l₂ − l₁) va v = λ·f ni hisoblang.',
-    'Tajribani 400, 500, 600, 700, 800 Hz chastotalarda takrorlang.',
-    'Tezlikning o‘rtacha qiymatini nazariy qiymat bilan taqqoslang.'
+    "Virtual laboratoriyani ishga tushiring va havo haroratini yozib oling.",
+    "Generator chastotasini f = 500 Hz ga o‘rnating.",
+    "Trubka radiusini o‘lchang va porshenni yuqori holatga qo‘ying.",
+    "Porshenni asta-sekin pastga siljitib, tovush eng baland eshitiladigan birinchi holatni toping.",
+    "Birinchi rezonans l₁ ni chizg‘ichdan o‘qib yozing.",
+    "Porshenni yana siljitib, ikkinchi rezonans l₂ ni toping va yozing.",
+    "Farq l₂ − l₁ ni hisoblab, λ = 2(l₂ − l₁) formulasidan to‘lqin uzunligini toping.",
+    "Tovush tezligini v = 2f(l₂ − l₁) formulasidan hisoblang.",
+    "Tajribani 400, 600 va 800 Hz chastotalarda takrorlang va o‘rtacha v ni toping.",
+    "Nazariy v ≈ 331,4 + 0,6t bilan solishtiring va nisbiy xatoni hisoblang."
   ],
   questions: [
-    'Tovush deb nimaga aytiladi va u qanday muhitlarda tarqaladi?',
-    'Tovush tezligi nimalarga bog‘liq?',
-    'v = λ·f formulasidagi kattaliklarni tushuntiring.',
-    'Rezonans hodisasi nima?',
-    'Turg‘un to‘lqin qanday hosil bo‘ladi?',
-    'Nima uchun ketma-ket ikki rezonans orasidagi masofa λ/2 ga teng?',
-    'Xona haroratida havoda tovush tezligi taxminan qancha?'
+    "Tovush nima va u qanday to‘lqin hisoblanadi?",
+    "v = λ·f formulasi nimani bildiradi?",
+    "Rezonans hodisasi nima va u qachon yuz beradi?",
+    "Birinchi va ikkinchi rezonans qaysi uzunliklarda kuzatiladi?",
+    "Nima uchun rezonanslar orasidagi masofa λ/2 ga teng?",
+    "Trubka uchi tuzatmasi nima va u natijaga qanday ta’sir qiladi?",
+    "Havo harorati tovush tezligiga qanday ta’sir qiladi?",
+    "Chastota ikki marta oshsa, to‘lqin uzunligi qanday o‘zgaradi?",
+    "Beton va havoda tovush tezliklari nima uchun farq qiladi?",
+    "Qurilishda rezonans trubkasi hodisasi qayerda ahamiyatli bo‘ladi?"
   ],
   quiz: [
-    { q: 'Tovush to‘lqinining tezligi qaysi ifoda bilan topiladi?', options: ['v = f·λ', 'v = f/λ', 'v = f + λ', 'v = f²·λ'], answer: 0 },
-    { q: '0 °C da havoda tovush tezligi qancha?', options: ['331,4 m/s', '340 m/s', '300 m/s', '360 m/s'], answer: 0 },
-    { q: 'Harorat 10 °C ga oshsa, tovush tezligi taxminan necha m/s ga ortadi?', options: ['6', '3', '0,6', '12'], answer: 0 },
-    { q: 'Tovush chastotasi ortsa, havodagi tezlik:', options: ['O‘zgarmaydi', 'Kamayadi', 'Ortadi', 'Nolga teng bo‘ladi'], answer: 0 },
-    { q: 'Ketma-ket ikki rezonans orasidagi masofa:', options: ['λ/2', 'λ', 'λ/4', '2λ'], answer: 0 }
+    {
+      "q": "Tovush tezligi, chastota va to‘lqin uzunligi orasidagi bog‘lanish:",
+      "options": [
+        "v = λ/f",
+        "v = f/λ",
+        "v = λ·f",
+        "v = λ + f"
+      ],
+      "answer": 2
+    },
+    {
+      "q": "Ikki ketma-ket rezonans orasidagi masofa:",
+      "options": [
+        "λ/2",
+        "λ",
+        "λ/4",
+        "2λ"
+      ],
+      "answer": 0
+    },
+    {
+      "q": "20 °C da havoda tovush tezligi taxminan:",
+      "options": [
+        "300 m/s",
+        "1500 m/s",
+        "3 m/s",
+        "343 m/s"
+      ],
+      "answer": 3
+    },
+    {
+      "q": "Harorat ortsa, havoda tovush tezligi:",
+      "options": [
+        "Kamayadi",
+        "Ortadi",
+        "O‘zgarmaydi",
+        "Nolga teng bo‘ladi"
+      ],
+      "answer": 1
+    },
+    {
+      "q": "Bir uchi yopiq trubkada birinchi rezonans:",
+      "options": [
+        "l₁ ≈ λ",
+        "l₁ ≈ λ/4",
+        "l₁ ≈ λ/2",
+        "l₁ ≈ 2λ"
+      ],
+      "answer": 1
+    },
+    {
+      "q": "Tovush to‘lqini turi:",
+      "options": [
+        "Ko‘ndalang",
+        "Elektromagnit",
+        "Gravitatsion",
+        "Bo‘ylama"
+      ],
+      "answer": 3
+    },
+    {
+      "q": "Chastotani ikki marta oshirsak, λ (v o‘zgarmas):",
+      "options": [
+        "2 marta kamayadi",
+        "2 marta ortadi",
+        "O‘zgarmaydi",
+        "4 marta ortadi"
+      ],
+      "answer": 0
+    },
+    {
+      "q": "Tovush tezligi eng katta bo‘lgan muhit:",
+      "options": [
+        "Havo",
+        "Vakuum",
+        "Beton (qattiq jism)",
+        "Suv bug‘i"
+      ],
+      "answer": 2
+    }
   ],
-  conclusion: 'Rezonans usulida aniqlangan tovush tezligi v = 2f(l₂ − l₁) nazariy qiymatga (≈343 m/s, 20 °C) yaqin chiqdi. Tezlik chastotaga bog‘liq emasligi, harorat ortishi bilan esa ortishi tasdiqlandi.',
+  conclusion: "Rezonans usulida aniqlangan tovush tezligi v = 2f(l₂ − l₁) nazariy qiymatga (≈343 m/s, 20 °C) yaqin chiqdi. Tezlik chastotaga bog‘liq emasligi, chastota oshganda to‘lqin uzunligi kamayishi tajribada tasdiqlandi. Trubka uchi tuzatmasi ikki rezonans ayirmasida yo‘qolgani uchun usul aniq natija berdi. Natija akustika va tovush izolyatsiyasi hisoblarida qo‘llaniladi.",
+  tasks: [
+    {
+      "q": "Qurilish maydonida havo harorati 25 °C. Havoda tovush tezligini toping (v = 331,4 + 0,6·t).",
+      "answer": 346.4,
+      "unit": "m/s",
+      "tol": 0.03,
+      "hint": "t = 25 °C ni qo‘ying.",
+      "solution": "v = 331,4 + 0,6·25 = 346,4 m/s."
+    },
+    {
+      "q": "Havoda tovush tezligi 340 m/s, generator chastotasi 680 Hz. To‘lqin uzunligini toping.",
+      "answer": 0.5,
+      "unit": "m",
+      "tol": 0.03,
+      "hint": "λ = v / f.",
+      "solution": "λ = 340 / 680 = 0,5 m."
+    },
+    {
+      "q": "f = 500 Hz da rezonanslar l₁ = 0,165 m va l₂ = 0,505 m da kuzatildi. Tovush tezligini toping (v = 2f(l₂ − l₁)).",
+      "answer": 340,
+      "unit": "m/s",
+      "tol": 0.03,
+      "hint": "Avval l₂ − l₁ ni toping.",
+      "solution": "v = 2·500·0,34 = 340 m/s."
+    },
+    {
+      "q": "Tovush devordan qaytib, 0,6 s dan keyin eshitildi (v = 340 m/s). Devorgacha masofani toping.",
+      "answer": 102,
+      "unit": "m",
+      "tol": 0.03,
+      "hint": "Tovush masofani ikki marta bosib o‘tadi.",
+      "solution": "s = v·t/2 = 340·0,6/2 = 102 m."
+    }
+  ],
   sim: {
     intro: 'Chastota va haroratni o‘zgartiring: rezonans holatlari va tovush tezligi avtomatik hisoblanadi.',
     inputs: [

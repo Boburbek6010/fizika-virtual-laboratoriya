@@ -46,6 +46,6 @@ export default function Home() {
       <div className="simbox">{t.sim ? <Simulator sim={t.sim} compact topicId={t.id} /> : <p className="muted">Simulyator tez orada qo'shiladi.</p>}</div>
     </section>)}
     <section className="closing"><div className="em">👷 🏗️ 🏢</div><h2>Qurilish fizikasi — kelajak mutaxassislari uchun!</h2></section>
-    <footer>© Fizika virtual laboratoriya · Muallif: Jumayeva Ziyoda Arslonovna · Guvohnoma № DGU 68504<br /><small className="src">Manbalar: interaktiv animatsiyalar — <a href="https://phet.colorado.edu" target="_blank" rel="noopener noreferrer">PhET Interaktiv simulyatsiyalari</a>, Kolorado universiteti (Boulder), CC BY 4.0.</small></footer>
+    <footer>© Fizika virtual laboratoriya · Muallif: Jumayeva Ziyoda Arslonovna · Guvohnoma № DGU 68504{Object.keys(PHET).length > 0 && <><br /><small className="src">Manbalar: interaktiv animatsiyalar — <a href="https://phet.colorado.edu" target="_blank" rel="noopener noreferrer">PhET Interaktiv simulyatsiyalari</a>, Kolorado universiteti (Boulder), CC BY 4.0.</small></>}</footer>
   </>
 }

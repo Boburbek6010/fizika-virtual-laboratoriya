@@ -114,3 +114,23 @@ body{padding-bottom:62px}.chips{top:48px}}
 .abio h3{font-family:var(--serif);font-weight:500;font-size:1.15rem;margin:8px 0}.abio ul{padding-left:18px;margin:0 0 12px}.abio li{margin:6px 0;font-size:.93rem;line-height:1.5}
 @media(max-width:560px){.aprof{flex-direction:column;align-items:flex-start}.stats4{grid-template-columns:1fr 1fr}}
 img.av{width:28px;height:28px;border-radius:50%;object-fit:cover;object-position:50% 20%;display:inline-block}
+/* lab start/finish */
+.simbar{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin:0 0 18px}.simbar .btn.pill{padding:8px 18px;font-size:.88rem;margin-left:0}
+.status{display:inline-flex;align-items:center;gap:8px;margin-left:auto;font-size:.85rem;font-weight:500;color:var(--mu);border:1px solid var(--line);background:var(--cream);border-radius:99px;padding:5px 14px}
+.status i{width:8px;height:8px;border-radius:50%;background:var(--mu)}.status.s-running i{background:var(--teal);animation:blink 1.2s infinite}.status.s-finished i{background:var(--accent)}
+.timer{font-variant-numeric:tabular-nums;color:var(--ink)}
+.inputs.locked{opacity:.55}.inputs.locked input{cursor:not-allowed}
+.hint{background:var(--cream);border:1px dashed var(--line);border-radius:14px;padding:18px 16px;color:var(--mu);text-align:center;min-height:76px;display:grid;place-items:center}
+.chartw.dim{opacity:.4}.chart .draw{stroke-dasharray:1;stroke-dashoffset:0;animation:drawin 1.2s ease-out}
+.chart .dot.pulse{transform-box:fill-box;transform-origin:center;animation:pulse 1.4s ease-in-out infinite}
+.summary{margin-top:14px;background:var(--cream);border:1px solid var(--line);border-left:3px solid var(--teal);border-radius:14px;padding:14px 18px}.summary h4{margin:0 0 4px;font-size:1.15rem}.summary ul{list-style:none;padding:0;margin:8px 0 12px}.summary li{display:flex;justify-content:space-between;gap:12px;padding:4px 0;border-bottom:1px solid var(--line)}
+.sim.compact .simbar{margin-bottom:12px}.sim.compact .simbar .btn.pill{padding:6px 14px;font-size:.82rem}.sim.compact .status{padding:3px 10px;font-size:.78rem}.sim.compact .hint{min-height:56px;padding:12px}
+.anim-badge{display:inline-block;margin-left:8px;background:var(--cream);color:var(--teal);border:1px solid var(--line);padding:2px 12px;border-radius:99px;font-size:.76rem;font-weight:500}
+.phet{margin-top:24px;background:var(--cream);border:1px solid var(--line);border-radius:20px;padding:20px 22px;box-shadow:var(--shadow)}.phet h4{margin:0 0 4px!important;font-size:1.25rem!important}
+.phet-act{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0 14px}.phet-act .btn{margin-left:0}
+.phet-box{aspect-ratio:16/10;min-height:420px;border-radius:16px;overflow:hidden;border:1px solid var(--line);background:var(--card)}.phet-box iframe{width:100%;height:100%;border:0;display:block}
+.phet-credit{margin:10px 0 0;font-size:.78rem;color:var(--mu)}.small{font-size:.82rem;margin:8px 0 0}.src{display:block;margin-top:6px}
+.donelist{display:grid;gap:12px}
+@keyframes drawin{from{stroke-dashoffset:1}to{stroke-dashoffset:0}}@keyframes pulse{50%{transform:scale(1.5)}}@keyframes blink{50%{opacity:.3}}
+@media(prefers-reduced-motion:reduce){.chart .draw,.chart .dot.pulse,.status i{animation:none!important}}
+@media(max-width:640px){.status{margin-left:0}.phet{padding:16px}.phet-box{min-height:420px}}

@@ -21,9 +21,9 @@ export function Testlar() {
 }
 export function Natijalar() {
   const [k, setK] = useState(0)
-  const data = useMemo(() => topics.map(t => ({ t, quiz: load('fz:quiz:' + t.id, null), tasks: load('fz:tasks:' + t.id, null), rows: load('fz:rows:' + t.id, []) })), [k])
+  const data = useMemo(() => topics.map(t => ({ t, quiz: load('fz:quiz:' + t.id, null), tasks: load('fz:tasks:' + t.id, null), rows: load('fz:rows:' + t.id, []), done: load('fz:done:' + t.id, null) })), [k])
   const sum = (f, g) => data.reduce((n, d) => n + (d[f] ? d[f][g] : 0), 0)
-  const clear = () => { if (window.confirm("Barcha saqlangan natijalar o'chirilsinmi?")) { topics.forEach(t => ['quiz', 'tasks', 'rows'].forEach(x => rm('fz:' + x + ':' + t.id))); setK(k + 1) } }
+  const clear = () => { if (window.confirm("Barcha saqlangan natijalar o'chirilsinmi?")) { topics.forEach(t => ['quiz', 'tasks', 'rows', 'done'].forEach(x => rm('fz:' + x + ':' + t.id))); setK(k + 1) } }
   const csv = () => {
     let o = ['№,Mavzu,Test (eng yaxshi),Nazorat ishi,Jadval qatorlari'].concat(data.map(d => [d.t.id, q(d.t.title), d.quiz ? d.quiz.score + '/' + d.quiz.total : '', d.tasks ? d.tasks.score + '/' + d.tasks.total : '', d.rows.length].join(','))).concat([['', 'Jami', sum('quiz', 'score') + '/' + sum('quiz', 'total'), sum('tasks', 'score') + '/' + sum('tasks', 'total'), data.reduce((n, d) => n + d.rows.length, 0)].join(',')])
     data.filter(d => d.rows.length).forEach(d => { const h = Object.keys(d.rows[0]); o.push('', q(d.t.id + '. ' + d.t.title), h.map(q).join(',')); d.rows.forEach(r => o.push(h.map(c => q(r[c])).join(','))) })
@@ -33,5 +33,10 @@ export function Natijalar() {
     <div className="rt-act noprint"><button className="btn" onClick={csv}>CSV yuklash</button><button className="btn ghost" onClick={() => window.print()}>Chop etish</button><button className="btn ghost" onClick={clear}>Tozalash</button></div>
     <div className="tscroll"><table><thead><tr><th>№</th><th style={{ textAlign: 'left' }}>Mavzu</th><th>Test</th><th>Nazorat ishi</th><th>Jadval</th></tr></thead>
       <tbody>{data.map(d => <tr key={d.t.id}><td>{d.t.id}</td><td style={{ textAlign: 'left', whiteSpace: 'normal' }}><Link to={'/topic/' + d.t.id}>{d.t.title}</Link></td><td>{d.quiz ? d.quiz.score + '/' + d.quiz.total : '—'}</td><td>{d.tasks ? d.tasks.score + '/' + d.tasks.total : '—'}</td><td>{d.rows.length || '—'}</td></tr>)}
-        <tr className="tot"><td></td><td style={{ textAlign: 'left' }}><b>Jami</b></td><td><b>{sum('quiz', 'score')}/{sum('quiz', 'total')}</b></td><td><b>{sum('tasks', 'score')}/{sum('tasks', 'total')}</b></td><td><b>{data.reduce((n, d) => n + d.rows.length, 0)}</b></td></tr></tbody></table></div></div>
+        <tr className="tot"><td></td><td style={{ textAlign: 'left' }}><b>Jami</b></td><td><b>{sum('quiz', 'score')}/{sum('quiz', 'total')}</b></td><td><b>{sum('tasks', 'score')}/{sum('tasks', 'total')}</b></td><td><b>{data.reduce((n, d) => n + d.rows.length, 0)}</b></td></tr></tbody></table></div>
+    <h2 className="sh" style={{ marginTop: 36 }}>Bajarilgan laboratoriyalar</h2>
+    {data.some(d => d.done) ? <div className="donelist">{data.filter(d => d.done).map(d => <div className="panel pgcard" key={d.t.id}><h3><Link to={'/topic/' + d.t.id + '?tab=sim'}>{d.t.id}. {d.t.title}</Link></h3>
+      <p className="muted">Davomiyligi: {String(Math.floor(d.done.secs / 60)).padStart(2, '0')}:{String(d.done.secs % 60).padStart(2, '0')} · {new Date(d.done.at).toLocaleDateString('uz-UZ')}</p>
+      {d.done.results.map((r, i) => <div className="frow" key={i}><span>{r.label}</span><code>{r.text} {r.unit}</code></div>)}</div>)}</div>
+      : <p className="muted">Hali laboratoriya yakunlanmagan. Simulyatsiyada «Boshlash», so'ng «Tugatish» tugmasini bosing.</p>}</div>
 }

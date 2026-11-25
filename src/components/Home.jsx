@@ -5,6 +5,7 @@ import { topics, categories } from '../topics.js'
 import Img from './Img.jsx'
 import Simulator from './Simulator.jsx'
 import Author from './Author.jsx'
+import { PHET } from '../phet.js'
 export default function Home() {
   const [cat, setCat] = useState('Hammasi'); const [qs, setQs] = useState('')
   const list = topics.filter(t => cat === 'Hammasi' || t.category === cat)
@@ -35,16 +36,16 @@ export default function Home() {
     {list.map((t, n) => <section id={'sec-' + t.id} key={t.id} className={'sec ' + (n % 2 ? 'alt' : '')}>
       <div className={'row ' + (n % 2 ? 'rev' : '')}>
         <div className="media"><Img topic={t} /><span className="badge">{String(t.id).padStart(2, '0')}</span></div>
-        <div className="txt"><span className="cat">{t.category}</span><h2>{t.title}</h2>{t.short && <p>{t.short}</p>}
+        <div className="txt"><span className="cat">{t.category}</span>{PHET[t.id] && <span className="anim-badge">Animatsiya mavjud</span>}<h2>{t.title}</h2>{t.short && <p>{t.short}</p>}
           {(t.learn || t.aim) && <div className="know"><h5>Nimani o'rganasiz</h5><ul>{(t.learn || t.aim).slice(0, 4).map((a, i) => <li key={i}>{a}</li>)}</ul></div>}
           {t.civil && t.civil[0] && <div className="civilc"><b>Qurilishda qo'llanishi:</b> {t.civil[0]}</div>}
           {t.formulas && t.formulas[0] && <div><small className="muted">Asosiy formula</small><br /><span className="fchip">{t.formulas[0].expr}</span></div>}
           <div className="tags"><span className="tag">Test: {(t.quiz || []).length} savol</span><span className="tag">Nazorat ishi: {(t.tasks || []).length} masala</span></div>
           <Link className="btn" to={'/topic/' + t.id}>Batafsil sahifa →</Link></div>
       </div>
-      <div className="simbox">{t.sim ? <Simulator sim={t.sim} /> : <p className="muted">Simulyator tez orada qo'shiladi.</p>}</div>
+      <div className="simbox">{t.sim ? <Simulator sim={t.sim} compact topicId={t.id} /> : <p className="muted">Simulyator tez orada qo'shiladi.</p>}</div>
     </section>)}
     <section className="closing"><div className="em">👷 🏗️ 🏢</div><h2>Qurilish fizikasi — kelajak mutaxassislari uchun!</h2></section>
-    <footer>© Fizika virtual laboratoriya · Muallif: Jumayeva Ziyoda Arslonovna · Guvohnoma № DGU 68504</footer>
+    <footer>© Fizika virtual laboratoriya · Muallif: Jumayeva Ziyoda Arslonovna · Guvohnoma № DGU 68504<br /><small className="src">Manbalar: interaktiv animatsiyalar — <a href="https://phet.colorado.edu" target="_blank" rel="noopener noreferrer">PhET Interaktiv simulyatsiyalari</a>, Kolorado universiteti (Boulder), CC BY 4.0.</small></footer>
   </>
 }

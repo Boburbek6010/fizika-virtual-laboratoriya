@@ -6,6 +6,7 @@ import Img from './Img.jsx'
 import Simulator from './Simulator.jsx'
 import Quiz from './Quiz.jsx'
 import Tasks from './Tasks.jsx'
+import Phet from './Phet.jsx'
 const TABS = ["Umumiy ko'rinish", 'Nazariya', 'Formulalar', 'Jihozlar', 'Ishni bajarish', 'Simulyatsiya', 'Test', 'Nazorat ishi', 'Nazorat savollari', 'Xulosa']
 const KEYS = ['ov', 'theory', 'formulas', 'equip', 'proc', 'sim', 'test', 'tasks', 'q', 'concl']
 const ul = a => <ul>{(a || []).map((x, i) => <li key={i}>{x}</li>)}</ul>
@@ -30,7 +31,7 @@ function View({ t }) {
       {tab === 3 && ul(t.equipment)}
       {tab === 4 && <><ol>{(t.procedure || []).map((x, k) => <li key={k}>{x}</li>)}</ol>
         {t.mistakes && <><h4>Odatiy xatolar</h4><div className="callout warn">{ul(t.mistakes)}</div></>}</>}
-      {tab === 5 && (t.sim ? <Simulator sim={t.sim} table={{ rows, setRows }} /> : <p className="muted">Simulyator hozircha mavjud emas.</p>)}
+      {tab === 5 && (t.sim ? <><Simulator sim={t.sim} table={{ rows, setRows }} topicId={t.id} onFinish={() => setTab(9)} /><Phet id={t.id} /></> : <p className="muted">Simulyator hozircha mavjud emas.</p>)}
       {tab === 6 && <Quiz quiz={t.quiz} onDone={(s, n) => bestQuiz(t.id, s, n)} />}
       {tab === 7 && <Tasks tasks={t.tasks} onScore={(s, n) => saveTasks(t.id, s, n)} />}
       {tab === 8 && <ol>{(t.questions || []).map((x, k) => <li key={k}>{x}</li>)}</ol>}

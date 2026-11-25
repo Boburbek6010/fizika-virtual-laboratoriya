@@ -61,3 +61,4 @@ footer{text-align:center;padding:36px 20px;color:var(--mu);font-size:.88rem;bord
 .hero{padding:56px 16px 48px}.sec{padding:52px 16px}.author{padding:48px 16px}.arow{padding:22px;gap:28px}
 .badge{font-size:2.8rem;left:-4px;top:-14px}.simbox{padding:18px;margin-top:32px}.panel{padding:18px}.wrap{padding:24px 16px 48px}
 .num input{width:76px}}
+.uni{font-weight:600;color:var(--accent-d);letter-spacing:.01em;margin:.2rem 0 .6rem}

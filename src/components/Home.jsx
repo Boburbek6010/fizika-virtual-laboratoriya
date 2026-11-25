@@ -11,7 +11,7 @@ export default function Home() {
     <nav className="nav"><a href="#/" className="brand"><span className="mark">⚛</span> Fizika<b>Lab</b></a>
       <a href="#muallif" className="navlink" onClick={e => { e.preventDefault(); document.getElementById('muallif')?.scrollIntoView({ behavior: 'smooth' }) }}>Muallif</a>
       <div className="links">{topics.map(t => <a key={t.id} href={'#sec-' + t.id} onClick={e => { e.preventDefault(); document.getElementById('sec-' + t.id)?.scrollIntoView({ behavior: 'smooth' }) }}>{t.id}</a>)}</div></nav>
-    <header className="hero"><div className="hero-in"><h1>Fizika virtual laboratoriyasi</h1><p>Qurilish muhandislari uchun 20 ta interaktiv laboratoriya ishi: nazariya, jonli simulyator va testlar.</p>
+    <header className="hero"><div className="hero-in"><h1>Fizikadan<br />virtual laboratoriya ishlari</h1><p className="uni">Toshkent arxitektura qurilish universiteti</p><p>Qurilish muhandislari uchun 20 ta interaktiv laboratoriya ishi: nazariya, jonli simulyator va testlar.</p>
       <div className="hero-act"><span className="by"><i className="av">Z</i>Muallif: Jumayeva Ziyoda Arslonovna</span>
       <button className="btn" onClick={() => document.getElementById('muallif')?.scrollIntoView({ behavior: 'smooth' })}>Guvohnomani ko'rish</button></div></div></header>
     <Author />

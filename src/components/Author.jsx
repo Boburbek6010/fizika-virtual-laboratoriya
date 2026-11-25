@@ -9,7 +9,8 @@ export default function Author() {
         <h2>Jumayeva Ziyoda Arslonovna</h2>
         <p className="cyr">Жумаева Зиёда Арслоновна</p>
         <p><b>O'qituvchi</b></p>
-        <p className="work">Fizika fanini o'qitish jarayonida talabalarning muhandislik qobiliyatlarini rivojlantirish metodikasi (qurilish muhandisligi yo'nalishlari misolida)</p>
+        <p className="work">Fizikadan virtual laboratoriya ishlari</p>
+        <p className="uni">Toshkent arxitektura qurilish universiteti</p>
         <p className="for">Qurilish muhandisligi yo'nalishi talabalari uchun</p>
       </div>
       <div className="cert">
